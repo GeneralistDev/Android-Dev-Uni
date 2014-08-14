@@ -11,50 +11,50 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="35sp"
+        android:layout_height="35dp"
         android:src="@drawable/ic_action_alarm_2"
         android:id="@+id/alarm_icon"/>
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="35sp"
+        android:layout_height="35dp"
         android:layout_toRightOf="@id/alarm_icon"
         android:id="@+id/alarm_text"
-        android:layout_marginLeft="20sp"
+        android:layout_marginLeft="20dp"
         android:text="Alarm Icon"
         android:textSize="25sp"/>
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="35sp"
+        android:layout_height="35dp"
         android:layout_below="@id/alarm_icon"
         android:src="@drawable/ic_action_google_play"
         android:id="@+id/play_icon"/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="35sp"
+        android:layout_height="35dp"
         android:layout_toRightOf="@id/alarm_icon"
         android:id="@+id/play_text"
         android:layout_below="@id/alarm_text"
-        android:layout_marginLeft="20sp"
+        android:layout_marginLeft="20dp"
         android:text="Play Icon"
         android:textSize="25sp"/>
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="35sp"
+        android:layout_height="35dp"
         android:layout_below="@id/play_icon"
         android:src="@drawable/ic_action_location_2"
         android:id="@+id/location_icon"/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="35sp"
+        android:layout_height="35dp"
         android:layout_toRightOf="@id/alarm_icon"
         android:id="@+id/location_text"
         android:layout_below="@id/play_text"
-        android:layout_marginLeft="20sp"
+        android:layout_marginLeft="20dp"
         android:text="Location Icon"
         android:textSize="25sp"/>
 
