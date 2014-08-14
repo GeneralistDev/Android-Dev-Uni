@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Melbourne</string>
-    <string name="hello_world">Melbourne</string>
+    <string name="melbourne">Melbourne</string>
     <string name="action_settings">Settings</string>
 
 </resources>

@@ -1,0 +1,59 @@
+% Software Development for Mobile Devices
+\documentclass[11pt,english,numbers=endperiod]{scrartcl}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+\title{Assignment 01}
+\subtitle{COS30017 - Software Development for Mobile Devices}
+\author{Daniel Parker 971328X}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Task 1}
+\subsection{activityMelbourne.xml}
+\lstinputlisting[language=XML]{../../Apps/Melbourne/app/src/main/res/layout/activity_melbourne.xml}
+
+\subsection{strings.xml}
+\lstinputlisting[language=XML]{../../Apps/Melbourne/app/src/main/res/values/strings.xml}
+
+\subsection{Screenshots}
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+\centering
+\fbox{\includegraphics[width=5cm]{../../Apps/Melbourne/Assignment/Melbourne-portrait.png}}\\\bigskip
+\fbox{\includegraphics[width=10cm]{../../Apps/Melbourne/Assignment/Melbourne-landscape.png}}
+
+\section{Task 2}
+
+\section{Task 3}
+
+\section{Task 4}
+
+\end{document}
