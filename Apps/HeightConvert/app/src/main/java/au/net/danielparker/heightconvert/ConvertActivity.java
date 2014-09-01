@@ -4,9 +4,27 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import org.androidannotations.annotations.*;
 
+@EActivity(R.layout.activity_convert)
 public class ConvertActivity extends Activity {
+
+    @ViewById
+    CheckBox metersCheckbox;
+
+    @ViewById
+    EditText feet;
+
+    @ViewById
+    EditText inches;
+
+    @ViewById
+    TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +50,49 @@ public class ConvertActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @AfterViews
+    @Click
+    void convertButton() {
+        if (feet.getText().length() == 0 || inches.getText().length() == 0) {
+            result.setText("ERR");
+        } else {
+            double feetValue = Double.parseDouble(feet.getText().toString());
+            double inchValue = Double.parseDouble(inches.getText().toString());
+
+            if (feetValue * 12 + inchValue > 96) {
+                Toast tallToast = Toast.makeText(getApplicationContext(), "You're suspiciously tall", Toast.LENGTH_LONG);
+                tallToast.show();
+            }
+
+            if (!metersCheckbox.isChecked()) {
+                result.setText(heightInCentimetres(feetValue, inchValue).toString() + " cm");
+            } else {
+                result.setText(heightInMetres(feetValue, inchValue).toString() + " m");
+            }
+        }
+    }
+
+    /**
+     * Convert feet, inches to centimetres
+     * @param feet      Number of feet
+     * @param inches    Number of inches
+     * @return          Number of centimetres
+     */
+    public Double heightInCentimetres(double feet, double inches) {
+        double totalInches = inches + ( feet * 12 );
+        return totalInches * 2.54;
+    }
+
+    /**
+     * Convert feet, inches to metres using the heightInCentimetres function
+     * @param feet      Number of feet
+     * @param inches    Number of inches
+     * @return          Number of metres
+     */
+    public Double heightInMetres(double feet, double inches) {
+        double centimetres = heightInCentimetres(feet, inches);
+        return centimetres / 100;
     }
 }
