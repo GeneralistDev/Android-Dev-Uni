@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="LIFE-CYCLE-ACTIVITY" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8e8a90-f8c6-44a9-86ef-e4b833d0cb58" name="Default" comment="" />
     <ignored path="LifeCycle.iws" />
@@ -26,8 +29,8 @@
       <file leaf-file-name="LifeCycleActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/swin/examples/LifeCycleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8603491" vertical-offset="0" max-vertical-offset="1110">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.8129676" vertical-offset="604" max-vertical-offset="1110">
+              <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -986,6 +989,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7d8e8a90-f8c6-44a9-86ef-e4b833d0cb58" name="Default" comment="" />
@@ -1051,8 +1057,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/swin/examples/LifeCycleActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8603491" vertical-offset="0" max-vertical-offset="1110">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.8129676" vertical-offset="604" max-vertical-offset="1110">
+          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
           <folding />
         </state>
       </provider>

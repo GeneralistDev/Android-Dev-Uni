@@ -57,4 +57,19 @@ As shown in the screenshot below, the \textit{onRestart()} event can be triggere
 }\\
 \bigskip
 
+\section{Task 3}
+\raggedright
+Invoking all the different lifecycle states we can see those that are printible in the activity normally, however the \textit{onDestroy()|} state never gets printed to the activity because the activity is no longer visible on the screen when the state occurs and due to the activity being destroyed the text won't be visible when the activity starts again because the data is lost.
+
+The following screenshots show the logcat messages for when each state is reached.
+\bigskip
+\centering{
+\fbox{\includegraphics[width=12cm]{images/screenshot-logcat-1.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=12cm]{images/screenshot-logcat-2.png}}
+}\\
+\bigskip
+
 \end{document}
