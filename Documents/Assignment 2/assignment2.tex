@@ -1,0 +1,60 @@
+% Software Development for Mobile Devices
+\documentclass[11pt,english,numbers=endperiod,parskip=half]{scrartcl}
+
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\rhead{Daniel Parker - 971328X}
+\lhead{COS30017 - Software Development for Mobile Devices}
+
+\title{Assignment 02}
+\subtitle{COS30017 - Software Development for Mobile Devices}
+\author{Daniel Parker 971328X}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section{Task 1}
+\subsection{Orientation Changes}
+\raggedright
+When the device orientation changes, a certain sequence of steps is being followed by the activity's lifecycle. Before the orientation of the device changes the activity is running, once the phone has been turned to it's side the activity moves to \textit{onPause()} then \textit{onStop()} and then \textit{onDestroy()}. The activity is then created again at \textit{onCreate()} with the new orientation and follows the lifecycle from there onwards as usual. \bigskip \\
+
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+\centering{
+	\fbox{\includegraphics[width=7cm]{images/activity_lifecycle.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/screenshot-portrait-1.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=10cm]{images/screenshot-landscape-1.png}}
+}\\
+\bigskip
+\raggedright
+We observe a time change after the orientation change because when the activity is destroyed and then recreated at \textit{onCreate()} the actual time is updated to the time at which it was recreated.
+\subsection{Resume, Pause and Stop States}
+The \textit{Pause} state is entered when the user navigates away from the specific activity by clicking a settings button (thus entering another activity) or otherwise. The activity has not been destroyed it has just moved into the pause state.
+
+When the user navigates back to the activity within the app, the activity will then enter the \textit{Resume} state to prepare for the user to start using it again. This transition happens most commonly when the back button is pressed within an app and the activity comes back into the foreground.
+
+If the user exits the activity either by navigating away from the app or returning to a previous activity then this activity will enter the \textit{Stop} state once it is no longer visible. The activity will pass the \textit{Pause} state on it's way to this state.
+
+\section{Task 2}
+As shown in the screenshot below, the \textit{onRestart()} event can be triggered. This was done by pressing the 'Home' button and then navigating back to the app using the app drawer.
+
+\centering{
+	\fbox{\includegraphics[width=7cm]{images/screenshot-states.png}}
+}\\
+\bigskip
+
+\end{document}

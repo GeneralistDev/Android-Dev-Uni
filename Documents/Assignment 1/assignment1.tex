@@ -1,9 +1,15 @@
 % Software Development for Mobile Devices
-\documentclass[11pt,english,numbers=endperiod,parskip=full]{scrartcl}
+\documentclass[11pt,english,numbers=endperiod,parskip=half]{scrartcl}
 
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{minted}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\rhead{Daniel Parker - 971328X}
+\lhead{COS30017 - Software Development for Mobile Devices}
 
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
@@ -17,6 +23,7 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
 
 \section{Task 1}
 \subsection{Source}
@@ -96,7 +103,8 @@ It is possible to force a high density screen to show a low density icon but the
 	\item The pixel density is different between devices.
 	\item Fonts will not show correctly across different devices if device dependent font sizing is used, ie. 'px' instead of 'sp'.
 	\item Fonts need to scale correctly so that they are readable on different density screens.
-
 \end{itemize}
+\subsection{Snippet}
+	\inputminted[firstline=42,lastline=42]{xml}{../../Apps/IconApp/app/src/main/res/layout/activity_icon.xml}
 
 \end{document}
