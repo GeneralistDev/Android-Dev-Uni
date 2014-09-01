@@ -8,5 +8,5 @@
     <string name="feet">Feet</string>
     <string name="inches">Inches</string>
     <string name="metres">Check for height in metres</string>
-    <string name="result_title">Result</string>
+    <string name="convert">Convert</string>
 </resources>

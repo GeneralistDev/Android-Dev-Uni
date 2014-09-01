@@ -23,22 +23,35 @@
         android:layout_below="@+id/title"
         android:layout_marginTop="@dimen/text_top_margin"/>
 
+    <TextView
+        android:id="@+id/feet_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feet"
+        android:textSize="@dimen/label_size"
+        android:layout_below="@id/instructions"
+        android:layout_marginTop="@dimen/text_top_margin"/>
     <EditText
         android:id="@+id/feet"
-        android:layout_marginTop="@dimen/text_top_margin"
-        android:layout_below="@id/instructions"
+        android:layout_below="@id/feet_label"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/text_input_height"
-        android:hint="@string/feet"
         android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/inches_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inches"
+        android:textSize="@dimen/label_size"
+        android:layout_below="@id/feet"
+        android:layout_marginTop="@dimen/text_top_margin"/>
+    
     <EditText
         android:id="@+id/inches"
-        android:layout_marginTop="@dimen/text_top_margin"
-        android:layout_below="@id/feet"
+        android:layout_below="@id/inches_label"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/text_input_height"
-        android:hint="@string/inches"
         android:gravity="center"/>
 
     <CheckBox
@@ -56,20 +69,18 @@
         android:layout_below="@id/inches"
         android:gravity="center_vertical"/>
 
-    <TextView
-        android:id="@+id/result_title"
-        android:text="@string/result_title"
+    <Button
+        android:id="@+id/convert_button"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/text_height"
-        android:gravity="center"
+        android:layout_height="@dimen/text_input_height"
         android:layout_below="@id/meters_checkbox"
-        android:textSize="@dimen/title_font_size"
+        android:text="@string/convert"
         android:layout_marginTop="@dimen/text_top_margin"/>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/result_title"
+        android:layout_below="@id/convert_button"
         android:textSize="@dimen/result_text_size"
         android:gravity="center"/>
 </RelativeLayout>
