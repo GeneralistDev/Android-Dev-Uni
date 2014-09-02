@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import org.androidannotations.annotations.*;
 
+import java.text.DecimalFormat;
+
 @EActivity(R.layout.activity_convert)
 public class ConvertActivity extends Activity {
 
@@ -55,8 +57,10 @@ public class ConvertActivity extends Activity {
     @AfterViews
     @Click
     void convertButton() {
+
+
         if (feet.getText().length() == 0 || inches.getText().length() == 0) {
-            result.setText("ERR");
+            result.setText("");
         } else {
             double feetValue = Double.parseDouble(feet.getText().toString());
             double inchValue = Double.parseDouble(inches.getText().toString());
@@ -67,9 +71,13 @@ public class ConvertActivity extends Activity {
             }
 
             if (!metersCheckbox.isChecked()) {
-                result.setText(heightInCentimetres(feetValue, inchValue).toString() + " cm");
+                DecimalFormat dec = new DecimalFormat("0.## cm");
+                dec.setMinimumFractionDigits(2);
+                result.setText(dec.format(heightInCentimetres(feetValue, inchValue)));
             } else {
-                result.setText(heightInMetres(feetValue, inchValue).toString() + " m");
+                DecimalFormat dec = new DecimalFormat("0.## m");
+                dec.setMinimumFractionDigits(2);
+                result.setText(dec.format(heightInMetres(feetValue, inchValue)));
             }
         }
     }
