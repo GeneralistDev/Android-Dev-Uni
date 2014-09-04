@@ -99,6 +99,32 @@ String externalisation allows us to supply different language strings for the sa
 \inputminted{xml}{../../Apps/StrExtern/app/src/main/res/layout/activity_main.xml}
 
 \section{Task 5}
+\raggedright
+In this application, the landscape activity will use it's own layout supplied in the \textit{layout-land} directory. When the orientation changes to landscape that will be the layout used. The difference with this layout is that the whole activity is enclosed within a ScrollView so that the user can scroll down and access the lower parts of the activity. 
 
+When a user enters a height larger than 8 foot (or 96 inches) the app will display a toast to say that they are suspiciously tall for a human. This can be seen in the third screenshot. When the user checks the checkbox, and then clicks the \textit{Convert} button, the answer will be given in metres instead of centimetres.
+\subsection{Screenshots}
+\centering{
+	\fbox{\includegraphics[width=6cm]{images/screenshot-height-portrait.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=10cm]{images/screenshot-height-landscape.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=6cm]{images/screenshot-toast.png}}
+}\\
+\bigskip
+
+\subsection{Source}
+\subsubsection{ConvertActivity.java}
+\inputminted{java}{../../Apps/HeightConvert/app/src/main/java/au/net/danielparker/heightconvert/ConvertActivity.java}
+
+\subsubsection{layout/activity\_convert.xml}
+\inputminted{xml}{../../Apps/HeightConvert/app/src/main/res/layout/activity_convert.xml}
+
+\subsubsection{layout-land/activity\_convert.xml}
+\inputminted{xml}{../../Apps/HeightConvert/app/src/main/res/layout-land/activity_convert.xml}
 
 \end{document}

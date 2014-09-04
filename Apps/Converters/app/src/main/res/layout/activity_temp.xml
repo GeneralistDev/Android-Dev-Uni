@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/title_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_font_size"/>
+
+    <TextView
+        android:id="@+id/instructions"
+        android:text="@string/instructions_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="@dimen/text_top_margin"/>
+
+    <TextView
+        android:id="@+id/fahr_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fahrenheit"
+        android:textSize="@dimen/label_size"
+        android:layout_below="@id/instructions"
+        android:layout_marginTop="@dimen/text_top_margin"/>
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/fahr"
+        android:layout_below="@id/fahr_label"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/text_input_height"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/convert_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fahr"
+        android:text="@string/convert"
+        android:layout_marginTop="@dimen/text_top_margin"/>
+
+    <TextView
+        android:id="@+id/result_temp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/convert_button"
+        android:textSize="@dimen/result_text_size"
+        android:gravity="center"/>
+</RelativeLayout>
