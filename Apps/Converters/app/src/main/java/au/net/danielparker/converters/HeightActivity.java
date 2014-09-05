@@ -14,6 +14,8 @@ import java.text.DecimalFormat;
 @EActivity(R.layout.activity_height)
 public class HeightActivity extends Activity {
 
+    final static String STATE_RESULT = "result";
+
     @ViewById
     CheckBox metersCheckbox;
 
@@ -32,10 +34,34 @@ public class HeightActivity extends Activity {
         setContentView(R.layout.activity_height);
     }
 
+    /**
+     * Save the instance data so that it can be retained
+     * after the orientation has changed.
+     * @param savedInstanceState
+     */
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(STATE_RESULT, result.getText().toString());
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    /**
+     * Restore the data from before orientation change
+     * @param savedInstanceState
+     */
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        result.setText(savedInstanceState.getString(STATE_RESULT));
+    }
+
+    /**
+     * Convert the height when convert button is clicked
+     */
     @Click
     void convertButton() {
-
-
         if (feet.getText().length() == 0 || inches.getText().length() == 0) {
             result.setText("");
         } else {

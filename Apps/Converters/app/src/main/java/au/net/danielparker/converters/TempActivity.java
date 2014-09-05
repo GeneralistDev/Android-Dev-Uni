@@ -20,6 +20,8 @@ import java.text.DecimalFormat;
 @EActivity(R.layout.activity_temp)
 public class TempActivity extends Activity {
 
+    static final String STATE_RESULT = "result";
+
     @ViewById(R.id.fahr)
     EditText Fahrenheit;
 
@@ -33,6 +35,20 @@ public class TempActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
         celFormatter.setMinimumFractionDigits(2);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        String result = Result.getText().toString();
+        if (result.length() > 0)
+            savedInstanceState.putString(STATE_RESULT, result);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Result.setText(savedInstanceState.getString(STATE_RESULT));
     }
 
     @Click(R.id.convert_button)

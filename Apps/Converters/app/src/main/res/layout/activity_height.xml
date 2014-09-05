@@ -74,7 +74,7 @@
     <Button
         android:id="@+id/convert_button"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/text_input_height"
+        android:layout_height="wrap_content"
         android:layout_below="@id/meters_checkbox"
         android:text="@string/convert"
         android:layout_marginTop="@dimen/text_top_margin"/>
