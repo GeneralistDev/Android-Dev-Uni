@@ -4,5 +4,8 @@
     <string name="app_name">ImageIntent</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="pasta">Pasta</string>
+    <string name="lasagna">Lasagna</string>
+    <string name="sardines">Sardines</string>
+    <string name="porridge">Porridge</string>
 </resources>

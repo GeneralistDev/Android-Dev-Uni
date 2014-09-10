@@ -45,6 +45,7 @@ public class ImageGallery extends Activity {
     void lasangaImage() {
         Intent imageIntent = new Intent(this, ImageActivity_.class);
         imageIntent.putExtra("image_name", R.drawable.lasagna);
+        imageIntent.putExtra("desc", R.string.lasagna);
         startActivity(imageIntent);
     }
 
@@ -55,6 +56,7 @@ public class ImageGallery extends Activity {
     void pastaImage() {
         Intent imageIntent = new Intent(this, ImageActivity_.class);
         imageIntent.putExtra("image_name", R.drawable.pasta);
+        imageIntent.putExtra("desc", R.string.pasta);
         startActivity(imageIntent);
     }
 
@@ -65,6 +67,7 @@ public class ImageGallery extends Activity {
     void porridgeImage() {
         Intent imageIntent = new Intent(this, ImageActivity_.class);
         imageIntent.putExtra("image_name", R.drawable.porridge);
+        imageIntent.putExtra("desc", R.string.porridge);
         startActivity(imageIntent);
     }
 
@@ -75,6 +78,7 @@ public class ImageGallery extends Activity {
     void sardinesImage() {
         Intent imageIntent = new Intent(this, ImageActivity_.class);
         imageIntent.putExtra("image_name", R.drawable.sardines);
+        imageIntent.putExtra("desc", R.string.sardines);
         startActivity(imageIntent);
     }
 }

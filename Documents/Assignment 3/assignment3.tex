@@ -40,8 +40,6 @@ When one of the form-based activity's orientation changes, the \textit{onSaveIns
 \subsubsection{activity\_temp.xml}
 \inputminted{xml}{../../Apps/Converters/app/src/main/res/layout/activity_temp.xml}
 
-
-
 \subsection{Screenshots}
 The following two screenshots show how the orientation change doesn't cause the data in the activity to disappear, due to it being passed in the state change bundle and then restored to the activity when it is recreated.
 
@@ -50,11 +48,39 @@ The following two screenshots show how the orientation change doesn't cause the 
 \centering{
 	\fbox{\includegraphics[width=5cm]{images/height-p.png}}
 }\\
-
+\bigskip
 \centering{
 	\fbox{\includegraphics[width=8cm]{images/height-l.png}}
 }\\
 
 \subsection{Task 2}
+In this app, the image and description resource IDs are passed through the intent to the recieving Activity which then sets the resource using those IDs.
+\subsection{ImageGallery.java}
+\inputminted[firstline=41,lastline=83]{java}{../../Apps/ImageIntent/app/src/main/java/au/net/danielparker/imageintent/ImageGallery.java}
+\subsection{ImageActivity.java}
+\inputminted[firstline=51,lastline=59]{java}{../../Apps/ImageIntent/app/src/main/java/au/net/danielparker/imageintent/ImageActivity.java}
+
+\subsection{Layouts}
+\subsubsection{activity\_image\_gallery.xml}
+\inputminted{xml}{../../Apps/ImageIntent/app/src/main/res/layout/activity_image_gallery.xml}
+
+\subsubsection{activity\_image.xml}
+\inputminted{xml}{../../Apps/ImageIntent/app/src/main/res/layout/activity_image.xml}
+
+\subsection{Screenshots}
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/gallery.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/lasagna.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/pasta.png}}
+}\\
+
+\section{Task 3}
+
 
 \end{document}

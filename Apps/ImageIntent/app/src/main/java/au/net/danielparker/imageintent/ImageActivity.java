@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -18,6 +19,9 @@ import org.androidannotations.annotations.ViewById;
 public class ImageActivity extends Activity {
     @ViewById
     ImageView imageContainer;
+
+    @ViewById
+    TextView description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +49,12 @@ public class ImageActivity extends Activity {
     }
 
     /**
-     *  Set the image passed in the intent to show on the screen.
+     *  Set the image and description passed in the intent to show on the screen.
      */
     @AfterViews
     public void showImage() {
         Intent intent = getIntent();
         imageContainer.setImageResource(intent.getIntExtra("image_name", 0));
+        description.setText(intent.getIntExtra("desc", 0));
     }
 }
