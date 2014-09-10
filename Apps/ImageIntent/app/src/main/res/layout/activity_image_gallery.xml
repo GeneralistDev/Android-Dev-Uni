@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp"
+    tools:context=".ImageGallery">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+        <TableRow
+            android:paddingBottom="20dp">
+            <ImageView
+                android:id="@+id/lasagna_image"
+                android:src="@drawable/lasagna"
+                android:scaleType="center"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/pasta_image"
+                android:src="@drawable/pasta"
+                android:scaleType="center"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow>
+            <ImageView
+                android:id="@+id/porridge_image"
+                android:src="@drawable/porridge"
+                android:scaleType="center"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/sardines_image"
+                android:src="@drawable/sardines"
+                android:scaleType="center"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

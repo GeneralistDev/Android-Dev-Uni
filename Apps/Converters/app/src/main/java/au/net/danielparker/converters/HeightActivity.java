@@ -63,7 +63,8 @@ public class HeightActivity extends Activity {
     @Click
     void convertButton() {
         if (feet.getText().length() == 0 || inches.getText().length() == 0) {
-            result.setText("");
+            Toast fillFieldToast = Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT);
+            fillFieldToast.show();
         } else {
             double feetValue = Double.parseDouble(feet.getText().toString());
             double inchValue = Double.parseDouble(inches.getText().toString());
