@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/metadata"
+                android:textSize="@dimen/title_size"
+                android:gravity="center"
+                android:paddingTop="@dimen/std_padding"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:hint="@string/hint_location"/>
+            <MultiAutoCompleteTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_keywords">
+            </MultiAutoCompleteTextView>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_source"
+                android:inputType="textEmailAddress" />
+            <RelativeLayout
+                android:id="@+id/share_section"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <TextView
+                    android:id="@+id/share_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:text="@string/share_label"
+                    android:textSize="@dimen/title_size"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"/>
+                <ToggleButton
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_date"
+                android:textSize="@dimen/title_size"
+                android:gravity="center"/>
+            <DatePicker
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_rating"
+                android:textSize="@dimen/title_size"
+                android:gravity="center_horizontal"/>
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:numStars="5" />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_button"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

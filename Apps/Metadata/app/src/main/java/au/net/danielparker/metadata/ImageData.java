@@ -2,6 +2,8 @@ package au.net.danielparker.metadata;
 
 import android.media.Rating;
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -10,7 +12,7 @@ import java.util.Date;
 /**
  * Created by danielparker on 14/09/14.
  */
-public class ImageData {
+public class ImageData implements Parcelable{
     private int imageId;
     private String name;
     private Uri url;
@@ -20,10 +22,47 @@ public class ImageData {
     private Boolean share = false;
     private Rating rating = Rating.newUnratedRating(Rating.RATING_5_STARS);
 
+    public static final Parcelable.Creator<ImageData> CREATOR
+            = new Parcelable.Creator<ImageData>() {
+        public ImageData createFromParcel(Parcel in) {
+            return new ImageData(in);
+        }
+
+        public ImageData[] newArray(int size) {
+            return new ImageData[size];
+        }
+    };
+
+    public ImageData(Parcel in) {
+        this.imageId = in.readInt();
+        this.name = in.readString();
+        this.url = Uri.parse(in.readString());
+        this.keyWords = in.readArrayList(String.class.getClassLoader());
+        this.date = new Date(in.readLong());
+        this.sourceEmail = in.readString();
+        this.share = (Boolean)in.readValue(Boolean.class.getClassLoader());
+        this.rating = (Rating)in.readValue(Rating.class.getClassLoader());
+    }
+
     public ImageData(String name, String sourceEmail, int imageId) throws NameEmptyException, EmailEmptyException {
         setName(name);
         setSourceEmail(sourceEmail);
         setImageId(imageId);
+    }
+
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(imageId);
+        out.writeString(name);
+        out.writeString(url.toString());
+        out.writeList(keyWords);
+        out.writeLong(date.getTime());
+        out.writeString(sourceEmail);
+        out.writeValue(share);
+        out.writeValue(rating);
+    }
+
+    public int describeContents() {
+        return 0;
     }
 
     public int getImageId() {

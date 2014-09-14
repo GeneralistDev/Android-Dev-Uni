@@ -1,10 +1,13 @@
 package au.net.danielparker.metadata;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import org.androidannotations.annotations.EActivity;
 
@@ -23,6 +26,16 @@ public class Gallery extends ListActivity {
         initialiseUI();
     }
 
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        ImageData selectedItem = (ImageData) getListView().getItemAtPosition(position);
+        editMetadataForItem(selectedItem);
+    }
+
+    private void editMetadataForItem(ImageData selectedItem) {
+        Intent intent = new Intent(this, EditMetadata_.class );
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,8 +57,8 @@ public class Gallery extends ListActivity {
     }
 
     private void initialiseUI() {
-        ArrayList<ImageData> galleryData = loadGalleryItems();
-        ArrayAdapter<ImageData> adapter = new GalleryAdapter(this, loadGalleryItems());
+        this.galleryData = loadGalleryItems();
+        ArrayAdapter<ImageData> adapter = new GalleryAdapter(this, galleryData);
 
         setListAdapter(adapter);
     }
