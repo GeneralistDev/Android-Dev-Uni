@@ -1,21 +1,26 @@
 package au.net.danielparker.metadata;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
 
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 
+import java.util.ArrayList;
+
 @EActivity(R.layout.activity_gallery)
-public class Gallery extends Activity {
+public class Gallery extends ListActivity {
+
+    private ArrayList<ImageData> galleryData = new ArrayList<ImageData>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
+
+        initialiseUI();
     }
 
 
@@ -38,15 +43,22 @@ public class Gallery extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Click(R.id.flowers_row)
-    void flowersRow() {
-        Toast toast = Toast.makeText(this.getApplicationContext(), "Got flowers click", Toast.LENGTH_SHORT);
-        toast.show();
+    private void initialiseUI() {
+        ArrayList<ImageData> galleryData = loadGalleryItems();
+        ArrayAdapter<ImageData> adapter = new GalleryAdapter(this, loadGalleryItems());
+
+        setListAdapter(adapter);
     }
 
-    @Click(R.id.food_row)
-    void foodRow() {
-        Toast toast = Toast.makeText(this.getApplicationContext(), "Got food click", Toast.LENGTH_SHORT);
-        toast.show();
+    private ArrayList<ImageData> loadGalleryItems() {
+        ArrayList<ImageData> images = new ArrayList<ImageData>();
+        try {
+            images.add(new ImageData("Flowers", "mail@example.com", R.drawable.flowers));
+            images.add(new ImageData("Food", "mail@example.com", R.drawable.food));
+        } catch (Exception e ) {
+
+        }
+
+        return images;
     }
 }
