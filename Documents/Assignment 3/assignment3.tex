@@ -81,6 +81,22 @@ In this app, the image and description resource IDs are passed through the inten
 }\\
 
 \section{Task 3}
+\subsection{Why is the intent messaging facility considered as a late run-time binding be- tween components?}
+It is considered a late run-time binding because it's not something that gets evaluated when the main app is compiled, but rather something that happens at run-time.
 
+\subsection{What are the contents of the passive data structure (of an intent)?}
+The contents of the passive intent are actions and data. Actions are to be performed and the data is the what the action will be performed on / with.
+
+\subsection{Why is the word “passive” used for the intent data structure?}
+It means that the data structure doesn't do anything, in the case of intents there is just messages telling some other activity what to do and it's not the Intent's responsibility to do it. It is essentially just a means of messaging other activities.
+
+\subsection{Phone Example}
+The intent is constructed with the action to call and the phone number. The intent is then passed into the \textit{startActivity} method as a parameter. The intent is just an abstract representation of the action to call the number.
+\begin{minted}{java}
+	String number = "5555555555";
+	Intent intent = new Intent(Intent.ACTION_CALL);
+	intent.setData(Uri.parse(number));
+	startActivity(intent);
+\end{minted}
 
 \end{document}
