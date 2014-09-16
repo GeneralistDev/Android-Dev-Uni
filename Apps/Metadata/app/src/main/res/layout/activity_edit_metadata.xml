@@ -18,20 +18,24 @@
                 android:gravity="center"
                 android:paddingTop="@dimen/std_padding"/>
             <EditText
+                android:id="@+id/name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_name"/>
             <EditText
+                android:id="@+id/source_url"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textUri"
                 android:hint="@string/hint_location"/>
             <MultiAutoCompleteTextView
+                android:id="@+id/keywords"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_keywords">
             </MultiAutoCompleteTextView>
             <EditText
+                android:id="@+id/source_email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_source"
@@ -52,6 +56,7 @@
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"/>
                 <ToggleButton
+                    android:id="@+id/share_toggle"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true" />
@@ -64,6 +69,7 @@
                 android:textSize="@dimen/title_size"
                 android:gravity="center"/>
             <DatePicker
+                android:id="@+id/date"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"/>
@@ -74,11 +80,13 @@
                 android:textSize="@dimen/title_size"
                 android:gravity="center_horizontal"/>
             <RatingBar
+                android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:numStars="5" />
             <Button
+                android:id="@+id/save_button"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/save_button"/>

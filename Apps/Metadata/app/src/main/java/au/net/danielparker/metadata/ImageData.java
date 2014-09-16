@@ -7,7 +7,6 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by danielparker on 14/09/14.
@@ -17,7 +16,7 @@ public class ImageData implements Parcelable{
     private String name;
     private Uri url;
     private ArrayList<String> keyWords = new ArrayList<String>();
-    private Date date = Calendar.getInstance().getTime();
+    private Calendar date = Calendar.getInstance();
     private String sourceEmail;
     private Boolean share = false;
     private Rating rating = Rating.newUnratedRating(Rating.RATING_5_STARS);
@@ -36,9 +35,9 @@ public class ImageData implements Parcelable{
     public ImageData(Parcel in) {
         this.imageId = in.readInt();
         this.name = in.readString();
-        this.url = Uri.parse(in.readString());
+        this.url = (Uri)in.readValue(Uri.class.getClassLoader());
         this.keyWords = in.readArrayList(String.class.getClassLoader());
-        this.date = new Date(in.readLong());
+        date.setTimeInMillis(in.readLong());
         this.sourceEmail = in.readString();
         this.share = (Boolean)in.readValue(Boolean.class.getClassLoader());
         this.rating = (Rating)in.readValue(Rating.class.getClassLoader());
@@ -53,9 +52,9 @@ public class ImageData implements Parcelable{
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(imageId);
         out.writeString(name);
-        out.writeString(url.toString());
+        out.writeValue(url);
         out.writeList(keyWords);
-        out.writeLong(date.getTime());
+        out.writeLong(date.getTimeInMillis());
         out.writeString(sourceEmail);
         out.writeValue(share);
         out.writeValue(rating);
@@ -92,27 +91,33 @@ public class ImageData implements Parcelable{
         this.name = name;
     }
 
-    public Uri getUrl() {
-        return url;
+    public String getUrl() {
+        if (url != null) {
+            return url.toString();
+        } else {
+            return "";
+        }
     }
 
     public void setUrl(Uri url) {
         this.url = url;
     }
 
-    public ArrayList<String> getKeyWords() {
-        return keyWords;
+    public String getKeyWords() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String s: keyWords) {
+            stringBuilder.append(s + '\n');
+        }
+        return stringBuilder.toString();
     }
 
     public void setKeyWords(ArrayList<String> keyWords) {
         this.keyWords = keyWords;
     }
 
-    public Date getDate() {
-        return date;
-    }
+    public Calendar getDate() { return date; }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

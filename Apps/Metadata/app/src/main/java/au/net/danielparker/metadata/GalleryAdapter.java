@@ -37,7 +37,7 @@ public class GalleryAdapter extends ArrayAdapter<ImageData> {
 
         image.setImageResource(values.get(position).getImageId());
         title.setText(values.get(position).getName());
-        date.setText(simpleDateFormat.format(values.get(position).getDate()));
+        date.setText(simpleDateFormat.format(values.get(position).getDate().getTime()));
 
         return rowView;
     }

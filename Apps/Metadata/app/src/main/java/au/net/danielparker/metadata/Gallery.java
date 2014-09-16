@@ -34,7 +34,19 @@ public class Gallery extends ListActivity {
 
     private void editMetadataForItem(ImageData selectedItem) {
         Intent intent = new Intent(this, EditMetadata_.class );
-        startActivity(intent);
+        intent.setAction(Intent.ACTION_EDIT);
+        intent.putExtra("ImageData", selectedItem);
+
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int responseCode, Intent data) {
+        if (requestCode == 1) {
+            if (responseCode == RESULT_OK) {
+                ImageData editedSelection = data.getParcelableExtra("ImageData");
+            }
+        }
     }
 
     @Override
