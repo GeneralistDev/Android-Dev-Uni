@@ -3,6 +3,7 @@ package au.net.danielparker.metadata;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class Gallery extends ListActivity {
 
     private ArrayList<ImageData> galleryData = new ArrayList<ImageData>();
+    private ArrayAdapter<ImageData> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +31,14 @@ public class Gallery extends ListActivity {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         ImageData selectedItem = (ImageData) getListView().getItemAtPosition(position);
-        editMetadataForItem(selectedItem);
+        editMetadataForItem(selectedItem, position);
     }
 
-    private void editMetadataForItem(ImageData selectedItem) {
+    private void editMetadataForItem(ImageData selectedItem, int position) {
         Intent intent = new Intent(this, EditMetadata_.class );
         intent.setAction(Intent.ACTION_EDIT);
         intent.putExtra("ImageData", selectedItem);
+        intent.putExtra("position", position);
 
         startActivityForResult(intent, 1);
     }
@@ -45,6 +48,13 @@ public class Gallery extends ListActivity {
         if (requestCode == 1) {
             if (responseCode == RESULT_OK) {
                 ImageData editedSelection = data.getParcelableExtra("ImageData");
+                int position = data.getIntExtra("position", -1);
+                if (position != -1) {
+                    galleryData.set(position, editedSelection);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    Log.e("METADATA", "Error getting edited metadata: Invalid index");
+                }
             }
         }
     }
@@ -70,7 +80,7 @@ public class Gallery extends ListActivity {
 
     private void initialiseUI() {
         this.galleryData = loadGalleryItems();
-        ArrayAdapter<ImageData> adapter = new GalleryAdapter(this, galleryData);
+        adapter = new GalleryAdapter(this, galleryData);
 
         setListAdapter(adapter);
     }
