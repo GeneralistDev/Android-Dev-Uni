@@ -21,12 +21,14 @@
                 android:id="@+id/name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:hint="@string/hint_name"/>
             <EditText
                 android:id="@+id/source_url"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textUri"
+                android:singleLine="true"
                 android:hint="@string/hint_location"/>
             <MultiAutoCompleteTextView
                 android:id="@+id/keywords"
@@ -39,6 +41,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_source"
+                android:singleLine="true"
                 android:inputType="textEmailAddress" />
             <RelativeLayout
                 android:id="@+id/share_section"
@@ -84,7 +87,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:numStars="5" />
+                android:numStars="5"
+                android:stepSize="1"/>
             <Button
                 android:id="@+id/save_button"
                 android:layout_width="fill_parent"

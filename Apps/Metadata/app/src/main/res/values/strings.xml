@@ -8,7 +8,7 @@
     <string name="metadata">Image Details</string>
     <string name="hint_name">Name</string>
     <string name="hint_location">Source (URL)</string>
-    <string name="hint_keywords">Keywords</string>
+    <string name="hint_keywords">Keywords (one per line)</string>
     <string name="hint_date">Date found</string>
     <string name="share_label">Share image?</string>
     <string name="hint_source">Obtainer\'s email</string>
