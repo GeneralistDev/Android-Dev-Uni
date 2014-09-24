@@ -91,6 +91,7 @@ public class EditMetadata extends Activity {
             givenDate.set(date.getYear(), date.getMonth(), date.getDayOfMonth());
             this.selectedImage.setDate(givenDate);
             this.selectedImage.setRating(Rating.newStarRating(Rating.RATING_5_STARS, rating.getNumStars()));
+            Log.d("METADATA", new Integer(rating.getNumStars()).toString());
 
             Intent resultIntent = new Intent();
             resultIntent.putExtra("ImageData", selectedImage);

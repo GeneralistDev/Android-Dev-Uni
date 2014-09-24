@@ -8,7 +8,9 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edge_margin"
+            android:layout_marginRight="@dimen/edge_margin">
 
             <TextView
                 android:layout_width="fill_parent"
@@ -17,25 +19,52 @@
                 android:textSize="@dimen/title_size"
                 android:gravity="center"
                 android:paddingTop="@dimen/std_padding"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/label_size"
+                android:paddingLeft="@dimen/label_padding"
+                android:text="@string/label_name"/>
             <EditText
                 android:id="@+id/name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:hint="@string/hint_name"/>
+                android:hint="@string/hint_name"
+                android:layout_marginBottom="@dimen/std_padding"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/label_size"
+                android:paddingLeft="@dimen/label_padding"
+                android:text="@string/label_location"/>
             <EditText
                 android:id="@+id/source_url"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textUri"
                 android:singleLine="true"
-                android:hint="@string/hint_location"/>
+                android:hint="@string/hint_location"
+                android:layout_marginBottom="@dimen/std_padding"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/label_size"
+                android:paddingLeft="@dimen/label_padding"
+                android:text="@string/label_keywords"/>
             <MultiAutoCompleteTextView
                 android:id="@+id/keywords"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_keywords">
+                android:hint="@string/hint_keywords"
+                android:layout_marginBottom="@dimen/std_padding">
             </MultiAutoCompleteTextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/label_size"
+                android:paddingLeft="@dimen/label_padding"
+                android:text="@string/label_source"/>
             <EditText
                 android:id="@+id/source_email"
                 android:layout_width="fill_parent"
@@ -52,7 +81,7 @@
                     android:id="@+id/share_label"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
-                    android:text="@string/share_label"
+                    android:text="@string/label_share"
                     android:textSize="@dimen/title_size"
                     android:textAlignment="center"
                     android:gravity="center_vertical"
@@ -68,7 +97,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hint_date"
+                android:text="@string/label_date"
                 android:textSize="@dimen/title_size"
                 android:gravity="center"/>
             <DatePicker
@@ -79,7 +108,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hint_rating"
+                android:text="@string/label_rating"
                 android:textSize="@dimen/title_size"
                 android:gravity="center_horizontal"/>
             <RatingBar
@@ -93,7 +122,7 @@
                 android:id="@+id/save_button"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/save_button"/>
+                android:text="@string/button_save"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
