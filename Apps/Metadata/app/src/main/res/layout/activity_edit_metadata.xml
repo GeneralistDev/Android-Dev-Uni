@@ -42,10 +42,10 @@
                 android:id="@+id/source_url"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textUri"
                 android:singleLine="true"
                 android:hint="@string/hint_location"
-                android:layout_marginBottom="@dimen/std_padding"/>
+                android:layout_marginBottom="@dimen/std_padding"
+                android:inputType="textWebEditText" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

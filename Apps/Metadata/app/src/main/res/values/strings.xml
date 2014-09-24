@@ -8,7 +8,7 @@
 
     <string name="hint_name">Flowers</string>
     <string name="hint_location">http://images.google.com/</string>
-    <string name="hint_keywords">Flowers, Pretty, ...</string>
+    <string name="hint_keywords">Flowers\nPretty\n...</string>
     <string name="hint_source">john_smith@example.com</string>
 
     <string name="button_save">Save</string>

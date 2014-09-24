@@ -1,11 +1,14 @@
 package au.net.danielparker.metadata;
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.media.Rating;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -92,25 +95,39 @@ public class EditMetadata extends Activity {
     @Click(R.id.save_button)
     public void onSave() {
         try {
-            this.selectedImage.setName(name.getText().toString());
-            this.selectedImage.setUrl(Uri.parse(sourceURL.getText().toString()));
-            this.selectedImage.setKeyWords(stringToArrayList(keywords.getText().toString()));
-            this.selectedImage.setSourceEmail(sourceEmail.getText().toString());
-            this.selectedImage.setShare(shareToggle.isChecked());
-            Calendar givenDate = Calendar.getInstance();
-            givenDate.set(date.getYear(), date.getMonth(), date.getDayOfMonth());
-            this.selectedImage.setDate(givenDate);
-            this.selectedImage.setRating(Rating.newStarRating(Rating.RATING_5_STARS, rating.getNumStars()));
-            Log.d("METADATA", new Integer(rating.getNumStars()).toString());
+            InputMethodManager imm = (InputMethodManager)this.getSystemService(Service.INPUT_METHOD_SERVICE);
+            if (!Patterns.WEB_URL.matcher(sourceURL.getText().toString()).matches()){
+                Toast urlMismatchToast = Toast.makeText(getApplicationContext(), "The source url is invalid", Toast.LENGTH_LONG);
+                sourceURL.requestFocus();
+                imm.showSoftInput(sourceURL, 0);
 
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("ImageData", selectedImage);
-            resultIntent.putExtra("position", position);
+                urlMismatchToast.show();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(sourceEmail.getText().toString()).matches()) {
+                Toast emailMismatchToast = Toast.makeText(getApplicationContext(), "The email address is invalid", Toast.LENGTH_LONG);
+                sourceEmail.requestFocus();
+                imm.showSoftInput(sourceEmail, 0);
 
-            setResult(Activity.RESULT_OK, resultIntent);
+                emailMismatchToast.show();
+            } else {
+                this.selectedImage.setName(name.getText().toString());
+                this.selectedImage.setUrl(Uri.parse(sourceURL.getText().toString()));
+                this.selectedImage.setKeyWords(stringToArrayList(keywords.getText().toString()));
+                this.selectedImage.setSourceEmail(sourceEmail.getText().toString());
+                this.selectedImage.setShare(shareToggle.isChecked());
+                Calendar givenDate = Calendar.getInstance();
+                givenDate.set(date.getYear(), date.getMonth(), date.getDayOfMonth());
+                this.selectedImage.setDate(givenDate);
+                this.selectedImage.setRating(Rating.newStarRating(Rating.RATING_5_STARS, rating.getNumStars()));
+                Log.d("METADATA", new Integer(rating.getNumStars()).toString());
 
-            finish();
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("ImageData", selectedImage);
+                resultIntent.putExtra("position", position);
 
+                setResult(Activity.RESULT_OK, resultIntent);
+
+                finish();
+            }
         } catch ( ImageData.NameEmptyException e ) {
             Toast nameToast = Toast.makeText(getApplicationContext(), "Image must have a name", Toast.LENGTH_LONG);
             nameToast.show();
