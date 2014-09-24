@@ -79,8 +79,9 @@ public class EditMetadata extends Activity {
         position = bundledData.getInt("position");
 
         // Create actionbar dropdown spinner from stringarray
-        SpinnerAdapter mSpinnerAdapter = ArrayAdapter.createFromResource(getActionBar().getThemedContext(), R.array.text_sizes,
-                android.R.layout.simple_spinner_dropdown_item);
+        SpinnerAdapter mSpinnerAdapter = ArrayAdapter.createFromResource(
+                                         getActionBar().getThemedContext(), R.array.text_sizes,
+                                         android.R.layout.simple_spinner_dropdown_item);
 
         ActionBar.OnNavigationListener mOnNavigationListener = new ActionBar.OnNavigationListener() {
             @Override
@@ -143,7 +144,9 @@ public class EditMetadata extends Activity {
         this.keywords.setText(selectedImage.getKeyWords());
         this.sourceEmail.setText(selectedImage.getSourceEmail());
         this.shareToggle.setChecked(selectedImage.getShare());
-        this.date.updateDate(selectedImage.getDate().get(Calendar.YEAR), selectedImage.getDate().get(Calendar.MONTH), selectedImage.getDate().get(Calendar.DAY_OF_MONTH));
+        this.date.updateDate(selectedImage.getDate().get(Calendar.YEAR),
+                             selectedImage.getDate().get(Calendar.MONTH),
+                             selectedImage.getDate().get(Calendar.DAY_OF_MONTH));
         this.rating.setRating((int)selectedImage.getRating().getStarRating());
     }
 
@@ -160,15 +163,18 @@ public class EditMetadata extends Activity {
     @Click(R.id.save_button)
     public void onSave() {
         try {
-            InputMethodManager imm = (InputMethodManager)this.getSystemService(Service.INPUT_METHOD_SERVICE);
+            InputMethodManager imm =
+                    (InputMethodManager)this.getSystemService(Service.INPUT_METHOD_SERVICE);
             if (!Patterns.WEB_URL.matcher(sourceURL.getText().toString()).matches()){
-                Toast urlMismatchToast = Toast.makeText(getApplicationContext(), "The source url is invalid", Toast.LENGTH_LONG);
+                Toast urlMismatchToast = Toast.makeText(getApplicationContext(),
+                                         "The source url is invalid", Toast.LENGTH_LONG);
                 sourceURL.requestFocus();
                 imm.showSoftInput(sourceURL, 0);
 
                 urlMismatchToast.show();
             } else if (!Patterns.EMAIL_ADDRESS.matcher(sourceEmail.getText().toString()).matches()) {
-                Toast emailMismatchToast = Toast.makeText(getApplicationContext(), "The email address is invalid", Toast.LENGTH_LONG);
+                Toast emailMismatchToast = Toast.makeText(getApplicationContext(),
+                                           "The email address is invalid", Toast.LENGTH_LONG);
                 sourceEmail.requestFocus();
                 imm.showSoftInput(sourceEmail, 0);
 
@@ -182,7 +188,8 @@ public class EditMetadata extends Activity {
                 Calendar givenDate = Calendar.getInstance();
                 givenDate.set(date.getYear(), date.getMonth(), date.getDayOfMonth());
                 this.selectedImage.setDate(givenDate);
-                this.selectedImage.setRating(Rating.newStarRating(Rating.RATING_5_STARS, rating.getNumStars()));
+                this.selectedImage.setRating(Rating.newStarRating(Rating.RATING_5_STARS,
+                                                                  rating.getNumStars()));
                 Log.d("METADATA", new Integer(rating.getNumStars()).toString());
 
                 Intent resultIntent = new Intent();
@@ -194,17 +201,20 @@ public class EditMetadata extends Activity {
                 finish();
             }
         } catch ( ImageData.NameEmptyException e ) {
-            Toast nameToast = Toast.makeText(getApplicationContext(), "Image must have a name", Toast.LENGTH_LONG);
+            Toast nameToast = Toast.makeText(getApplicationContext(),
+                                             "Image must have a name", Toast.LENGTH_LONG);
             nameToast.show();
         } catch ( ImageData.EmailEmptyException e ) {
-            Toast emailToast = Toast.makeText(getApplicationContext(), "Email field must not be empty", Toast.LENGTH_LONG);
+            Toast emailToast = Toast.makeText(getApplicationContext(),
+                                              "Email field must not be empty", Toast.LENGTH_LONG);
             emailToast.show();
         }
     }
 
     public ArrayList<String> stringToArrayList(String s) {
         ArrayList<String> list = new ArrayList<String>();
-        BufferedReader streamReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(s.getBytes())));
+        BufferedReader streamReader = new BufferedReader(new InputStreamReader(
+                                                         new ByteArrayInputStream(s.getBytes())));
 
         String temp;
         try {

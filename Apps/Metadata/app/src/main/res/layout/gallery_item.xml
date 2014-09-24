@@ -14,7 +14,7 @@
         android:paddingLeft="@dimen/std_padding"
         android:paddingRight="@dimen/std_padding"
         android:layout_toRightOf="@id/Image"
-        android:textSize="@dimen/title_size"/>
+        android:textSize="?android:attr/labelTextSize"/>
     <TextView
         android:id="@+id/Image_Date"
         android:layout_width="fill_parent"
@@ -22,5 +22,6 @@
         android:paddingLeft="@dimen/std_padding"
         android:paddingRight="@dimen/std_padding"
         android:layout_below="@id/Image_Title"
-        android:layout_toRightOf="@id/Image"/>
+        android:layout_toRightOf="@id/Image"
+        android:textSize="?android:attr/labelTextSize"/>
 </RelativeLayout>

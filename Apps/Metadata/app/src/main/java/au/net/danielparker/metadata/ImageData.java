@@ -43,7 +43,8 @@ public class ImageData implements Parcelable{
         this.rating = (Rating)in.readValue(Rating.class.getClassLoader());
     }
 
-    public ImageData(String name, String sourceEmail, int imageId) throws NameEmptyException, EmailEmptyException {
+    public ImageData(String name, String sourceEmail, int imageId) throws NameEmptyException,
+                                                                          EmailEmptyException {
         setName(name);
         setSourceEmail(sourceEmail);
         setImageId(imageId);

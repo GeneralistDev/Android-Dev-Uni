@@ -1,5 +1,6 @@
 package au.net.danielparker.metadata;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SpinnerAdapter;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 
 import java.util.ArrayList;
@@ -19,12 +19,80 @@ import java.util.ArrayList;
 @EActivity(R.layout.activity_gallery)
 public class Gallery extends ListActivity {
 
+    private boolean navFired = false;
+
     private ArrayList<ImageData> galleryData = new ArrayList<ImageData>();
     private ArrayAdapter<ImageData> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle bundledData = getIntent().getExtras();
+
+        if (bundledData != null && bundledData.containsKey("Theme")) {
+            setTheme(bundledData.getInt("Theme"));
+        }
+
+        // Create actionbar dropdown spinner from stringarray
+        SpinnerAdapter mSpinnerAdapter = ArrayAdapter.createFromResource(
+                                         getActionBar().getThemedContext(),
+                                         R.array.text_sizes,
+                                         android.R.layout.simple_spinner_dropdown_item);
+
+        ActionBar.OnNavigationListener mOnNavigationListener = new ActionBar.OnNavigationListener() {
+            @Override
+            public boolean onNavigationItemSelected(int position, long itemId) {
+
+                Log.d("METADATA", "Position: " + position + " ItemId: " + itemId);
+                Intent intent = getIntent();
+
+                if (navFired == true ) {
+                    switch (position) {
+                        case 0:
+                            intent.putExtra("Theme", R.style.NormalText);
+                            finish();
+                            startActivity(intent);
+                            break;
+                        case 1:
+                            intent.putExtra("Theme", R.style.SmallText);
+                            finish();
+                            startActivity(intent);
+                            break;
+                        case 2:
+                            intent.putExtra("Theme", R.style.LargeText);
+                            finish();
+                            startActivity(intent);
+                            break;
+                    }
+                } else {
+                    navFired = true;
+                }
+
+                return true;
+            }
+        };
+
+        getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        getActionBar().setListNavigationCallbacks(mSpinnerAdapter, mOnNavigationListener);
+
+        if (bundledData != null && bundledData.containsKey("Theme")) {
+            switch (bundledData.getInt("Theme")){
+                case R.style.NormalText:
+                    getActionBar().setSelectedNavigationItem(0);
+                    break;
+                case R.style.SmallText:
+                    getActionBar().setSelectedNavigationItem(1);
+                    break;
+                case R.style.LargeText:
+                    getActionBar().setSelectedNavigationItem(2);
+                    break;
+            }
+
+        } else {
+            getActionBar().setSelectedNavigationItem(0);
+        }
+
         setContentView(R.layout.activity_gallery);
 
         initialiseUI();
