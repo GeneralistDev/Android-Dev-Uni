@@ -5,6 +5,12 @@
     <string name="action_settings">Settings</string>
     <string name="instructions">Select an image to change it\'s metadata.</string>
     <string name="metadata">Image Details</string>
+    
+    <string-array name="text_sizes">
+        <item>Normal Labels</item>
+        <item>Small Labels</item>
+        <item>Large Labels</item>
+    </string-array>
 
     <string name="hint_name">Flowers</string>
     <string name="hint_location">http://images.google.com/</string>
@@ -12,6 +18,9 @@
     <string name="hint_source">john_smith@example.com</string>
 
     <string name="button_save">Save</string>
+    <string name="button_small_text">Small Label Theme</string>
+    <string name="button_medium_text">Medium Label Theme</string>
+    <string name="button_large_text">Large Label Theme</string>
 
     <string name="label_name">Name</string>
     <string name="label_location">Source URL</string>

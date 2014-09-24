@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/label_size"
+                android:textSize="?android:labelTextSize"
                 android:paddingLeft="@dimen/label_padding"
                 android:text="@string/label_name"/>
             <EditText
@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/label_size"
+                android:textSize="?android:attr/labelTextSize"
                 android:paddingLeft="@dimen/label_padding"
                 android:text="@string/label_location"/>
             <EditText
@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/label_size"
+                android:textSize="?android:attr/labelTextSize"
                 android:paddingLeft="@dimen/label_padding"
                 android:text="@string/label_keywords"/>
             <MultiAutoCompleteTextView
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/label_size"
+                android:textSize="?android:attr/labelTextSize"
                 android:paddingLeft="@dimen/label_padding"
                 android:text="@string/label_source"/>
             <EditText
@@ -82,7 +82,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
                     android:text="@string/label_share"
-                    android:textSize="@dimen/title_size"
+                    android:textSize="?android:attr/labelTextSize"
                     android:textAlignment="center"
                     android:gravity="center_vertical"
                     android:paddingLeft="40dp"
@@ -98,7 +98,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_date"
-                android:textSize="@dimen/title_size"
+                android:textSize="?android:attr/labelTextSize"
                 android:gravity="center"/>
             <DatePicker
                 android:id="@+id/date"
@@ -109,7 +109,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_rating"
-                android:textSize="@dimen/title_size"
+                android:textSize="?android:attr/labelTextSize"
                 android:gravity="center_horizontal"/>
             <RatingBar
                 android:id="@+id/rating"

@@ -6,7 +6,7 @@
     <dimen name="photo_height">100dp</dimen>
 
     <dimen name="title_size">20sp</dimen>
-    <dimen name="label_size">14sp</dimen>
+
     <dimen name="edge_margin">12dp</dimen>
     <dimen name="label_padding">4dp</dimen>
     <dimen name="instruction_size">17dp</dimen>

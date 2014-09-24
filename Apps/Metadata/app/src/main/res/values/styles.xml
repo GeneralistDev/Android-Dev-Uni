@@ -5,4 +5,16 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SmallText" parent="AppTheme">
+        <item name="android:labelTextSize">10sp</item>
+    </style>
+
+    <style name="NormalText" parent="AppTheme">
+        <item name="android:labelTextSize">16sp</item>
+    </style>
+
+    <style name="LargeText" parent="AppTheme">
+        <item name="android:labelTextSize">22sp</item>
+    </style>
+
 </resources>
