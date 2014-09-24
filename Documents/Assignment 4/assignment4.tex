@@ -29,6 +29,32 @@ The Metadata app contains two activities. The main activity contains a listview 
 \raggedright
 The Parcelable protocol is a method for serializing object data so that it can be sent between activities as context. In the case of this Metadata app, when a user selects an image to edit, the underlying ImageData object is serialized as per the Parcelable interface implementation and sent to the EditMetadata activity. That activity will deserialize the object from using the parcelable interface so that it can be accessed like a normal object and edited. The same is done when the object is returned as a result from the EditMetadata activity. The reason we do not use the Serializable interface is that the Parcelable interface is significantly quicker to serialize and deserialize. This is desirable for Android apps considering that they run on lower powered devices and time is critical with these simple user interface wiring tasks.
 
+\subsection{screenshots}
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/home-n.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/home-s.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/meta-n.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/meta-l.png}}
+}\\
+\bigskip
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/meta-l-bottom.png}}
+}\\
+\bigskip
+
+
 \begin{landscape}
 \subsection{Source}
 \subsubsection{Gallery.java (Startup activity)}
@@ -53,12 +79,9 @@ The Parcelable protocol is a method for serializing object data so that it can b
 \inputminted{xml}{../../Apps/Metadata/app/src/main/res/values/styles.xml}
 \end{landscape}
 
-\setlength\fboxsep{0pt}
-\setlength\fboxrule{0.5pt}
-
 \section{Usability Test}
 \subsection{Objective}
-The purpose of this usability test was to identify what label font size felt most comfortable visually for users. It isn't always obvious what users will prefer, but doing a usability test like this one can help to identify the best font size for the situation.
+The purpose of this usability test was to identify what label font size felt most comfortable visually for users and also what information display font size was the best. It isn't always obvious what users will prefer, but doing a usability test like this one can help to identify the best font size for the situation.
 \subsection{Method}
 \begin{enumerate}
 	\item{The three font sizes were selected by first selecting a font size that looked best in my own opinion. That value was then used as the middle font size and font sizes slightly smaller and larger were selected as the other two font sizes for the usability test.}
@@ -141,8 +164,4 @@ The recommendation from the results of the usability test is that the Medium 16s
 \subsection{Reflection}
 If the usability test were to be run again, the users would be show all the fonts first and then asked to only give one preferred out of the three fonts for the labels and display information.
 
-%\centering{
-%	\fbox{\includegraphics[width=5cm]{images/gallery.png}}
-%}\\
-%\bigskip
 \end{document}
