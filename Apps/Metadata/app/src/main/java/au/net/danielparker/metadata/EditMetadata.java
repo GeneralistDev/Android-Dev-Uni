@@ -79,6 +79,16 @@ public class EditMetadata extends Activity {
         this.rating.setRating((int)selectedImage.getRating().getStarRating());
     }
 
+    /**
+     * Need to override back press to have data saved
+     * when the back arrow is pressed.
+     */
+    @Override
+    public void onBackPressed(){
+        Log.d("METADATA", "Back button pressed. Saving data...");
+        onSave();
+    }
+
     @Click(R.id.save_button)
     public void onSave() {
         try {
