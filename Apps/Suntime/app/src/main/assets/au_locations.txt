@@ -1,3 +1,5 @@
+Prahran,-37.8515240,144.9934840,Australia/Melbourne
+Hawthorn,-37.8201480,145.0358000,Australia/Melbourne
 Whyalla,-33.03333,137.58333,Australia/Adelaide
 Roebourne,-20.78333,117.13333,Australia/Perth
 Perth,-31.93333,115.83333,Australia/Perth
