@@ -1,9 +1,7 @@
 package au.net.danielparker.suntime.ui;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
