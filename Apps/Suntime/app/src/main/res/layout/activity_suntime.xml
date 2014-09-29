@@ -4,7 +4,7 @@
 	android:layout_height="fill_parent">
 
 
-<TextView android:text="Melbourne, AU" android:id="@+id/locationTV"
+<TextView android:text="Not Set" android:id="@+id/locationTV"
 android:textSize="36sp" 
 android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
 
