@@ -51,6 +51,25 @@ public class Location implements Parcelable {
         out.writeValue(this.timeZone);
     }
 
+    public static ArrayList<Location> loadLocations(InputStream locationsFile){
+        CSVReader csvReader = new CSVReader(new InputStreamReader(locationsFile));
+        String[] nextLine;
+        ArrayList<Location> locations = new ArrayList<Location>();
+        try {
+            while ((nextLine = csvReader.readNext()) != null) {
+                String name = nextLine[0];
+                double latitude = Double.parseDouble(nextLine[1]);
+                double longitude = Double.parseDouble(nextLine[2]);
+                TimeZone timeZone = TimeZone.getTimeZone(nextLine[3]);
+                locations.add(new Location(name, latitude, longitude, timeZone));
+            }
+        } catch (IOException e){
+            Log.e("SUNTIME", e.getMessage());
+        }
+
+        return locations;
+    }
+
     public int describeContents() {
         return 0;
     }
@@ -85,24 +104,5 @@ public class Location implements Parcelable {
 
     public void setTimeZone(TimeZone timeZone) {
         this.timeZone = timeZone;
-    }
-
-    public static ArrayList<Location> loadLocations(InputStream locationsFile){
-        CSVReader csvReader = new CSVReader(new InputStreamReader(locationsFile));
-        String[] nextLine;
-        ArrayList<Location> locations = new ArrayList<Location>();
-        try {
-            while ((nextLine = csvReader.readNext()) != null) {
-                String name = nextLine[0];
-                double latitude = Double.parseDouble(nextLine[1]);
-                double longitude = Double.parseDouble(nextLine[2]);
-                TimeZone timeZone = TimeZone.getTimeZone(nextLine[3]);
-                locations.add(new Location(name, latitude, longitude, timeZone));
-            }
-        } catch (IOException e){
-            Log.e("SUNTIME", e.getMessage());
-        }
-
-        return locations;
     }
 }

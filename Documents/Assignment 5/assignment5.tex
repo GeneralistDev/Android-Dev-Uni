@@ -23,6 +23,76 @@
 \thispagestyle{empty}
 
 \section{Task 1}
+\subsection{App Wiring}
+The app uses two activities, one to display a list of locations (loaded from file),
+and another to show the specific sun rise and set times for that location. The
+second activity is passed a \textit{Location} object as context for showing the
+correct times for the selected location. The following code snippets show the
+specific `wiring' components, such as intents and ListAdapters that are required,
+as boilerplate code to make this app function as intended.
+
+\textbf{LocationsActivity: }Responsible for the listview landing activity and
+how that is initialised with Location data. This activity extends the abstract
+\textit{ListActivity} class to allow for list item select event overriding. This
+Activity also creates intents to start the \textit{SuntimeActivity} and show a
+particular locations sun times.
+
+\textbf{LocationsAdapter: }Responsible for converting the underlying Location
+data model from it's object form into the UI views. This is set as the list
+adapter in the \textit{LocationsActivity} class.
+
+\textbf{SuntimeActivity: }Responsible for displaying a given location's sun times.
+This class makes use of some calculation classes; \textit{AstronomicalCalendar},
+\textit{GeoLocation}, and \textit{SunTimesCalculator}. Those classes were supplied,
+therefor I will not be including code snippets from them.
+
+\textbf{Location: }This is the data model for a location that is shared between
+the list adapter and the \textit{SuntimeActivity} class. Objects of this class
+are \textit{Parcelable} so that they can be passed as extra data in intents that
+are created by the list activity for \textit{SuntimeActivity}.
+
+
+% Source code needs landscape
+\begin{landscape}
+
+\subsubsection{LocationsActivity}
+\inputminted[firstline=25, lastline=62]{java}{../../Apps/Suntime/app/src/main/java/au/net/danielparker/suntime/ui/LocationsActivity.java}
+
+\subsubsection{LocationsAdapter}
+\inputminted[firstline=16, lastline=38]{java}{../../Apps/Suntime/app/src/main/java/au/net/danielparker/suntime/ui/LocationsAdapter.java}
+
+\subsubsection{SuntimeActivity}
+\inputminted[firstline=21, lastline=80]{java}{../../Apps/Suntime/app/src/main/java/au/net/danielparker/suntime/ui/SuntimeActivity.java}
+
+\subsubsection{Location}
+\inputminted[firstline=15, lastline=71]{java}{../../Apps/Suntime/app/src/main/java/au/net/danielparker/suntime/models/Location.java}
+
+\end{landscape}
+
+\subsection{Screenshots}
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+
+\begin{figure}[H]
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/list.png}}
+}\\
+\end{figure}
+\bigskip
+
+\begin{figure}[H]
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/prahran.png}}
+}\\
+\end{figure}
+\bigskip
+
+\begin{figure}[H]
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/hawthorn.png}}
+}\\
+\end{figure}
+\bigskip
 
 \section{Task 2}
 \subsection{User Stories}
@@ -48,9 +118,6 @@ have a lot of information, and potentially every single feature can be listed as
 scenarios to actually get the important information out.
 \subsection{Prototype}
 \subsubsection{Screenshots}
-\setlength\fboxsep{0pt}
-\setlength\fboxrule{0.5pt}
-
 \begin{figure}[H]
 \centering{
 	\fbox{\includegraphics[width=5cm]{images/home.png}}
