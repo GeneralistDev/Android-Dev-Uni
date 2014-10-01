@@ -137,6 +137,10 @@ The user has three options for selecting a location;
 \textbf{Features: }Options for locations as described above. Can detect current
 location as an option.
 
+\textbf{Design choices: }The choice to go for three buttons on this screen was
+primarily simplicity. In an actual app this could be made to look a lot nicer
+using button styles, or even compacted in to one of the other screens.
+
 \begin{figure}[H]
 \centering{
 	\fbox{\includegraphics[width=5cm]{images/presets.png}}
@@ -148,6 +152,10 @@ location as an option.
 list and they will then be taken to select a date / date range.
 
 \textbf{Features: }Select from pre-built set of locations.
+
+\textbf{Design choices: }This page is just a list of presets, the design
+heuristic for a data set like this is to use a list. Styling could be nicer in
+full implementation.
 
 \begin{figure}[H]
 \centering{
@@ -161,6 +169,10 @@ sun rise/set and weather. A different view is shown to them depending on whether
 a single date or a range is selected.
 
 \textbf{Features: }Select a date or a date range to view sun times and weather forecast.
+
+\textbf{Design choices: }The way that this screen is layed out is not ideal. It's
+not obvious that you need to omit the second date to just get a single date mode.
+Need to work out a better way of displaying these options.
 
 \begin{figure}[H]
 \centering{
@@ -176,6 +188,12 @@ this information by pressing the share icon in the action bar.
 \textbf{Features: }Show sun rise/set times for date/location. Share information
 via SMS and email (or any other app). View weather forecast (current, and near future).
 
+\textbf{Design choices: }This compact screen shows a lot of information. It's
+very logically layed out so that the user knows what each section means. I tried
+a new style of formatting text, where the label is smaller than the value. This
+seems to work well, as it puts the emphasis on the value and not the label for it.
+The next 4 day's weather is shown compactly at the bottom of the screen.
+
 \begin{figure}[H]
 \centering{
 	\fbox{\includegraphics[width=5cm]{images/custom-list.png}}
@@ -187,6 +205,10 @@ via SMS and email (or any other app). View weather forecast (current, and near f
 or press the \(+\) symbol to take them to add another custom location.
 
 \textbf{Features: }Add new custom location (partial).
+
+\textbf{Design choices: }This is a list much like the \textit{PRESETS} screen.
+The action bar in this case has a plus symbol so that the user knows they can
+add new locations to the list.
 
 \begin{figure}[H]
 \centering{
@@ -202,6 +224,11 @@ allow them to see the sun times and weather.
 \textbf{Features: }Add custom locations. Integrated into Google maps. View sun
 rise / set times for various locations on a map.
 
+\textbf{Design choices: }This screen features a map and a search box. The user
+can either click on a location on the map or search for one using the search box.
+I'm not sure if that will be an intuitive thing and would need to run some usability
+tests to find out if users have trouble using this screen.
+
 \begin{figure}[H]
 \centering{
 	\fbox{\includegraphics[width=5cm]{images/sun-range.png}}
@@ -214,6 +241,10 @@ was requested on the previous screen \textit{DATE-SELECT}. User can click on any
 date and see the full \textit{WEATHER} screen as well.
 
 \textbf{Features: }Generate table of sun rise/set times for a date range.
+
+\textbf{Design choices: }This screen shows a range of dates and their sun times.
+It is a list because it's unknown how long the date range selected will be and
+also because the user can select any date in this list to see the weather.
 
 \subsubsection{User scenario validations}
 \begin{enumerate}
