@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Die Hard 1",
+        "rating": 5,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Die Hard 2",
+        "rating": 4,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Die Hard 3",
+        "rating": 4.5,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "rating": 4.9,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "The Red Violin",
+        "rating": 4.1,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Ip Man",
+        "rating": 4.8,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Ip Man 2",
+        "rating": 3.9,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Iron Man",
+        "rating": 4.8,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "Iron Man 2",
+        "rating": 4.3,
+        "icon": "movie_icon"
+    },
+    {
+        "title": "The Matrix",
+        "rating": 4.9,
+        "icon": "movie_icon"
+    }
+]
