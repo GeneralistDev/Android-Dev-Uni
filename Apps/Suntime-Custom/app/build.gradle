@@ -30,7 +30,7 @@ android {
     defaultConfig {
         applicationId "au.net.danielparker.suntime"
         minSdkVersion 15
-        targetSdkVersion 20
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
@@ -39,6 +39,9 @@ android {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 

@@ -65,7 +65,7 @@ public class LocationsActivity extends ListActivity {
 
     @Click(R.id.custom_button)
     void onCustomButtonClick() {
-        Intent intent = new Intent(this, AddNewLocation.class);
+        Intent intent = new Intent(this, AddNewLocation_.class);
         startActivity(intent);
     }
 }

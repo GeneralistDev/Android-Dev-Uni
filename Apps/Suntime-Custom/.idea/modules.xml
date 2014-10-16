@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Suntime.iml" filepath="$PROJECT_DIR$/Suntime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Suntime-Custom.iml" filepath="$PROJECT_DIR$/Suntime-Custom.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
