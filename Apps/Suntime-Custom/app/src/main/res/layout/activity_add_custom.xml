@@ -7,44 +7,53 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/form_padding"
         android:text="@string/form_name"
         android:textSize="20sp"/>
 
     <EditText
+        android:id="@+id/form_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/form_padding"
         android:text="@string/form_lat"
         android:textSize="20sp"/>
 
     <EditText
+        android:id="@+id/form_latitude"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/form_padding"
         android:text="@string/form_lon"
         android:textSize="20sp"/>
 
     <EditText
+        android:id="@+id/form_longitude"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/form_padding"
         android:text="@string/form_timezone"
         android:textSize="20sp"/>
 
     <EditText
+        android:id="@+id/form_timezone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/form_submit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/submit_button">

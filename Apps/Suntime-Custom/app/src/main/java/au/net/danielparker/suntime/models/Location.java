@@ -1,16 +1,22 @@
 package au.net.danielparker.suntime.models;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TimeZone;
 
 import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 
 public class Location implements Parcelable {
 
@@ -18,6 +24,8 @@ public class Location implements Parcelable {
     private double latitude;
     private double longitude;
     private TimeZone timeZone;
+
+    private static String LOCATIONS_FILE = "locations.csv";
 
     public static final Parcelable.Creator<Location> CREATOR
             = new Parcelable.Creator<Location>() {
@@ -51,11 +59,13 @@ public class Location implements Parcelable {
         out.writeValue(this.timeZone);
     }
 
-    public static ArrayList<Location> loadLocations(InputStream locationsFile){
-        CSVReader csvReader = new CSVReader(new InputStreamReader(locationsFile));
-        String[] nextLine;
+    public static ArrayList<Location> loadLocations(Context context){
         ArrayList<Location> locations = new ArrayList<Location>();
         try {
+            FileInputStream fileInputStream = context.openFileInput(LOCATIONS_FILE);
+            CSVReader csvReader = new CSVReader(new InputStreamReader(fileInputStream));
+            String[] nextLine;
+
             while ((nextLine = csvReader.readNext()) != null) {
                 String name = nextLine[0];
                 double latitude = Double.parseDouble(nextLine[1]);
@@ -63,10 +73,11 @@ public class Location implements Parcelable {
                 TimeZone timeZone = TimeZone.getTimeZone(nextLine[3]);
                 locations.add(new Location(name, latitude, longitude, timeZone));
             }
+            csvReader.close();
+
         } catch (IOException e){
             Log.e("SUNTIME", e.getMessage());
         }
-
         return locations;
     }
 
@@ -82,7 +93,7 @@ public class Location implements Parcelable {
         this.name = name;
     }
 
-    public double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
@@ -90,7 +101,7 @@ public class Location implements Parcelable {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
@@ -104,5 +115,28 @@ public class Location implements Parcelable {
 
     public void setTimeZone(TimeZone timeZone) {
         this.timeZone = timeZone;
+    }
+
+    public static void saveToDevice(Context context, ArrayList<Location> locations) {
+        try {
+            FileOutputStream fileOutputStream = context.openFileOutput(LOCATIONS_FILE,
+                                                       Context.MODE_PRIVATE | Context.MODE_APPEND);
+            CSVWriter csvWriter = new CSVWriter(new OutputStreamWriter(fileOutputStream));
+            List<String[]> lines = new ArrayList<String[]>();
+
+            for (Location location: locations) {
+                String entry[] = new String[4];
+                entry[0] = location.getName();
+                entry[1] = location.getLatitude().toString();
+                entry[2] = location.getLongitude().toString();
+                entry[3] = location.getTimeZone().getID();
+                lines.add(entry);
+            }
+
+            csvWriter.writeAll(lines);
+            csvWriter.close();
+        } catch (IOException e) {
+            Log.e("SUNTIME", e.getMessage());
+        }
     }
 }

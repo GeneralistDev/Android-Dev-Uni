@@ -1,0 +1,35 @@
+\documentclass[a4paper, parskip=half]{scrartcl}
+
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\makeatletter
+\renewcommand\@seccntformat[1]{}
+\makeatother
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+\title{Results}
+\date{}
+\begin{document}
+  \maketitle
+  \begin{tabularx}{\textwidth}{|c|C|}
+    \hline
+    Scenario & Comments \\
+    \hline
+    1 & \\[7cm]
+    \hline
+    2 & \\[7cm]
+    \hline
+  \end{tabularx}
+
+  \begin{tabularx}{\textwidth}{|c|C|}
+    \hline
+    Scenario & Comments \\
+    \hline
+    3 & \\[8cm]
+    \hline
+    4 & \\[8cm]
+    \hline
+  \end{tabularx}
+\end{document}

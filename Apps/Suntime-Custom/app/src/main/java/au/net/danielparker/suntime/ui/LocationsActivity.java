@@ -43,6 +43,8 @@ public class LocationsActivity extends ListActivity {
         showSuntimesForItem(selectedItem);
     }
 
+
+
     private void showSuntimesForItem(Location selectedItem) {
         Intent intent = new Intent(this, SuntimeActivity.class);
         intent.putExtra("location", selectedItem);
@@ -50,17 +52,10 @@ public class LocationsActivity extends ListActivity {
     }
 
     private void initialiseUI() {
-        AssetManager assetManager = getAssets();
-        try {
+        this.listData = Location.loadLocations(getApplicationContext());
+        adapter = new LocationsAdapter(this, this.listData);
 
-            InputStream inputStream = assetManager.open("au_locations.txt");
-            this.listData = Location.loadLocations(inputStream);
-            adapter = new LocationsAdapter(this, this.listData);
-
-            setListAdapter(adapter);
-        } catch (IOException e) {
-            Log.e("SUNTIME", e.getMessage());
-        }
+        setListAdapter(adapter);
     }
 
     @Click(R.id.custom_button)

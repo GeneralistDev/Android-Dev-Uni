@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Suntime</string>
-    <string name="form_name">Title</string>
+    <string name="form_name">Name</string>
     <string name="form_lat">Latitude</string>
     <string name="form_lon">Longitude</string>
     <string name="form_timezone">Timezone (eg. +11:00)</string>

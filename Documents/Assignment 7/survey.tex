@@ -1,0 +1,114 @@
+\documentclass[a4paper, parskip=half]{scrartcl}
+
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\makeatletter
+\renewcommand\@seccntformat[1]{}
+\makeatother
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+\title{Questionnaire}
+\date{}
+\begin{document}
+\maketitle
+
+Please answer the following questions using the 5-point scale as well as providing
+a brief comment.
+
+\begin{enumerate}
+  \item{
+    Clarity of the UI in communicating how to complete the scenario (i.e. tester
+    is able to use the correct set of features to complete the task without any
+    assistance).
+
+    \begin{tabularx}{\textwidth}{|X|C|C|C|C|C|X|}
+      \cline{2-6}
+      \multicolumn{1}{X|}{} & 1 & 2 & 3 & 4 & 5 & \multicolumn{1}{X}{} \\
+      \hline
+      Poor & & & & & & Excellent\\
+      \hline
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{|X|}
+      \hline
+      \textbf{Comment:}\\[2cm]
+      \hline
+    \end{tabularx}
+  }
+
+  \item{
+    The visual clarity of the sketch/prototype (specifically, readability).
+
+    \begin{tabularx}{\textwidth}{|X|C|C|C|C|C|X|}
+      \cline{2-6}
+      \multicolumn{1}{X|}{} & 1 & 2 & 3 & 4 & 5 & \multicolumn{1}{X}{} \\
+      \hline
+      Poor & & & & & & Excellent\\
+      \hline
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{|X|}
+      \hline
+      \textbf{Comment:}\\[2cm]
+      \hline
+    \end{tabularx}
+  }
+
+  \newpage
+  \item{
+    The effectiveness of the overall layout of components and functionality.
+
+    \begin{tabularx}{\textwidth}{|X|C|C|C|C|C|X|}
+      \cline{2-6}
+      \multicolumn{1}{X|}{} & 1 & 2 & 3 & 4 & 5 & \multicolumn{1}{X}{} \\
+      \hline
+      Poor & & & & & & Excellent\\
+      \hline
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{|X|}
+      \hline
+      \textbf{Comment:}\\[2cm]
+      \hline
+    \end{tabularx}
+  }
+
+  \item{
+    General difficulty in using the application.
+
+    \begin{tabularx}{\textwidth}{|X|C|C|C|C|C|X|}
+      \cline{2-6}
+      \multicolumn{1}{X|}{} & 1 & 2 & 3 & 4 & 5 & \multicolumn{1}{X}{} \\
+      \hline
+      Poor & & & & & & Excellent\\
+      \hline
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{|X|}
+      \hline
+      \textbf{Comment:}\\[2cm]
+      \hline
+    \end{tabularx}
+  }
+
+  \item{
+    Effectiveness of the prototype with respect to communicating the intent of the application.
+
+    \begin{tabularx}{\textwidth}{|X|C|C|C|C|C|X|}
+      \cline{2-6}
+      \multicolumn{1}{X|}{} & 1 & 2 & 3 & 4 & 5 & \multicolumn{1}{X}{} \\
+      \hline
+      Poor & & & & & & Excellent\\
+      \hline
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{|X|}
+      \hline
+      \textbf{Comment:}\\[2cm]
+      \hline
+    \end{tabularx}
+  }
+\end{enumerate}
+\end{document}

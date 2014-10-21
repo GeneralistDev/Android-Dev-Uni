@@ -3,4 +3,5 @@
     <dimen name="std_padding">10dp</dimen>
     <dimen name="location_font_size">35sp</dimen>
     <dimen name="label_font_size">18sp</dimen>
+    <dimen name="form_padding">4dp</dimen>
 </resources>

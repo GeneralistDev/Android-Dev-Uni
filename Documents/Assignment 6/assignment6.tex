@@ -80,6 +80,51 @@ and it provides consistent navigation when switching between apps. It also works
 nicely across multiple device screen sizes and orientations.
 
 \section{Task 4 - Add a Custom Geo Location}
--- Issues in Android Studio that I need help fixing --
+The Custom Geo Location app uses the devices internal storage to allow the user
+to add custom locations to get suntimes for. The modes that are used are
+\textit{MODE\_PRIVATE} and \textit{MODE\_APPEND}.
+\subsection{Screenshots}
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+
+\begin{figure}[H]
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/list.png}}
+}\\
+\end{figure}
+
+\begin{figure}[H]
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/add.png}}
+}\\
+\end{figure}
+
+\begin{figure}[H]
+\centering{
+	\fbox{\includegraphics[width=5cm]{images/suntime.png}}
+}\\
+\end{figure}
+
+\begin{landscape}
+\subsection{Source Code}
+\subsubsection{LocationsActivity}
+\inputminted{java}{../../Apps/Suntime-Custom/app/src/main/java/au/net/danielparker/suntime/ui/LocationsActivity.java}
+
+\subsubsection{AddNewLocation}
+\inputminted{java}{../../Apps/Suntime-Custom/app/src/main/java/au/net/danielparker/suntime/ui/AddNewLocation.java}
+
+\subsubsection{LocationsAdapter}
+\inputminted{java}{../../Apps/Suntime-Custom/app/src/main/java/au/net/danielparker/suntime/ui/LocationsAdapter.java}
+
+\subsubsection{Location}
+\inputminted{java}{../../Apps/Suntime-Custom/app/src/main/java/au/net/danielparker/suntime/model/Location.java}
+
+\subsubsection{activity\_locations}
+\inputminted{xml}{../../Apps/Suntime-Custom/app/src/main/res/layout/activity_locations.xml}
+
+\subsubsection{activity\_add\_custom}
+\inputminted{xml}{../../Apps/Suntime-Custom/app/src/main/res/layout/activity_add_custom.xml}
+
+\end{landscape}
 
 \end{document}
