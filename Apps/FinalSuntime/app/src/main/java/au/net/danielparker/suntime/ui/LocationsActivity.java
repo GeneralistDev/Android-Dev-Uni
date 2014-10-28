@@ -1,6 +1,7 @@
 package au.net.danielparker.suntime.ui;
 
 import android.app.ListActivity;
+import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.EFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,8 +24,8 @@ import au.net.danielparker.suntime.models.Location;
  * Created by danielparker on 29/09/14.
  */
 
-@EActivity(R.layout.activity_locations)
-public class LocationsActivity extends ListActivity {
+@EFragment(R.layout.activity_locations)
+public class LocationsActivity extends ListFragment {
     private ArrayList<Location> listData = new ArrayList<Location>();
     private ArrayAdapter<Location> adapter;
 
@@ -41,18 +43,18 @@ public class LocationsActivity extends ListActivity {
     }
 
     private void showSuntimesForItem(Location selectedItem) {
-        Intent intent = new Intent(this, SuntimeActivity.class);
+        Intent intent = new Intent(getActivity(), SuntimeActivity.class);
         intent.putExtra("location", selectedItem);
         startActivity(intent);
     }
 
     private void initialiseUI() {
-        AssetManager assetManager = getAssets();
+        AssetManager assetManager = getActivity().getAssets();
         try {
 
             InputStream inputStream = assetManager.open("au_locations.txt");
             this.listData = Location.loadLocations(inputStream);
-            adapter = new LocationsAdapter(this, this.listData);
+            adapter = new LocationsAdapter(getActivity(), this.listData);
 
             setListAdapter(adapter);
         } catch (IOException e) {
