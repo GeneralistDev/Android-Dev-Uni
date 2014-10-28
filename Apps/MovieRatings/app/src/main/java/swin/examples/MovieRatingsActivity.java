@@ -1,21 +1,26 @@
 package swin.examples;
 
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 /**
@@ -25,8 +30,10 @@ import android.widget.TextView;
  */
 public class MovieRatingsActivity extends ListActivity
 {
-	private ArrayList<Movie> movies = new ArrayList<Movie>();
+	protected ArrayList<Movie> movies = new ArrayList<Movie>();
 	private LayoutInflater mInflater;
+
+    protected ProgressDialog progressDialog;
 
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState)
@@ -38,13 +45,13 @@ public class MovieRatingsActivity extends ListActivity
 	
 	private void initializeUI()
 	{
+        progressDialog = ProgressDialog.show(this, "Loading", "Loading movies");
 		mInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);		
 		InputStream inputStream = getResources().openRawResource(	R.raw.ratings);
-		movies = Movie.loadFromFile(inputStream);		
-		setListAdapter(new RowIconAdapter(this, R.layout.listrow, R.id.row_label, movies));
+        new LoadMoviesTask(this).execute(inputStream);
 	}
 	
-	/** Custom row adatper -- that displays an icon next to the movie name */
+	/** Custom row adapter -- that displays an icon next to the movie name */
 	class RowIconAdapter extends ArrayAdapter<Movie> 
 	{
 		private ArrayList<Movie> movies;		
@@ -84,12 +91,6 @@ public class MovieRatingsActivity extends ListActivity
 			return convertView;
 		}
 	}
-
-    static class ViewHolder {
-        public TextView movieText;
-        public ImageView icon;
-        public TextView votesText;
-    }
 	
 	/** Creates a unique movie icon based on name and rating */
 	private Bitmap getMovieIcon(String movieName, String movieRating)
@@ -153,4 +154,37 @@ public class MovieRatingsActivity extends ListActivity
 			return Color.rgb(r,g,b);
 		}
 	}
+
+    static class ViewHolder {
+        public TextView movieText;
+        public ImageView icon;
+        public TextView votesText;
+    }
+
+    private class LoadMoviesTask extends AsyncTask<InputStream, Void, Void> {
+        private MovieRatingsActivity movieRatingsActivity;
+
+        public LoadMoviesTask(MovieRatingsActivity activity) {
+            this.movieRatingsActivity = activity;
+        }
+
+        @Override
+        protected Void doInBackground(InputStream... inputStreams) {
+            movieRatingsActivity.movies = Movie.loadFromFile(inputStreams[0]);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void Results) {
+            movieRatingsActivity.setListAdapter(new RowIconAdapter
+                    (movieRatingsActivity, R.layout.listrow,
+                     R.id.row_label, movieRatingsActivity.movies));
+            movieRatingsActivity.progressDialog.dismiss();
+        }
+    }
 }

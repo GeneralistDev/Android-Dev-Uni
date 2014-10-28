@@ -37,26 +37,20 @@ public class Movie
 		} catch (IOException iox) {} // pure evil at work
 		return movies;
 	}
-	
-	
-	
+
 	public String getName()
 	{
 		return name;
 	}
-
 
 	public String getRating()
 	{
 		return rating;
 	}
 
-
 	public String getVotes()
 	{
 		return votes;
 	}
-	
-	
-	
+
 }
