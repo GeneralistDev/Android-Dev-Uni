@@ -3,6 +3,9 @@
       package="au.net.danielparker.suntime"
       android:versionCode="1"
       android:versionName="1.0">
+    <!--<meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />-->
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="15"></uses-sdk>

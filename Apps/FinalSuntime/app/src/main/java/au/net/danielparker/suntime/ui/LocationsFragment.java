@@ -1,16 +1,14 @@
 package au.net.danielparker.suntime.ui;
 
-import android.app.ListActivity;
-import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EFragment;
 
 import java.io.IOException;
@@ -25,7 +23,7 @@ import au.net.danielparker.suntime.models.Location;
  */
 
 @EFragment(R.layout.activity_locations)
-public class LocationsActivity extends ListFragment {
+public class LocationsFragment extends ListFragment {
     private ArrayList<Location> listData = new ArrayList<Location>();
     private ArrayAdapter<Location> adapter;
 
