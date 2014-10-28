@@ -1,7 +1,6 @@
 package swin.examples;
 
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
@@ -13,14 +12,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 /**
@@ -32,6 +29,8 @@ public class MovieRatingsActivity extends ListActivity
 {
 	protected ArrayList<Movie> movies = new ArrayList<Movie>();
 	private LayoutInflater mInflater;
+
+    public static final int sleepTime = 2000;
 
     protected ProgressDialog progressDialog;
 
@@ -86,7 +85,8 @@ public class MovieRatingsActivity extends ListActivity
 				viewHolder.votesText.setText(votesStr);
 				Bitmap movieIcon = getMovieIcon(currMovie.getName(), currMovie.getRating());
 				viewHolder.icon.setImageBitmap(movieIcon);
-				Log.w("MVMVMVMVMVMV", "Creating row view at position "+pos+" movie "+currMovie.getName());
+				Log.w("MVMVMVMVMVMV", "Creating row view at position " + pos + " movie "
+                                                                      + currMovie.getName());
 			}
 			return convertView;
 		}
@@ -162,17 +162,17 @@ public class MovieRatingsActivity extends ListActivity
     }
 
     private class LoadMoviesTask extends AsyncTask<InputStream, Void, Void> {
-        private MovieRatingsActivity movieRatingsActivity;
+        private MovieRatingsActivity activity;
 
         public LoadMoviesTask(MovieRatingsActivity activity) {
-            this.movieRatingsActivity = activity;
+            this.activity = activity;
         }
 
         @Override
         protected Void doInBackground(InputStream... inputStreams) {
-            movieRatingsActivity.movies = Movie.loadFromFile(inputStreams[0]);
+            activity.movies = Movie.loadFromFile(inputStreams[0]);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
 
             }
@@ -181,10 +181,11 @@ public class MovieRatingsActivity extends ListActivity
 
         @Override
         protected void onPostExecute(Void Results) {
-            movieRatingsActivity.setListAdapter(new RowIconAdapter
-                    (movieRatingsActivity, R.layout.listrow,
-                     R.id.row_label, movieRatingsActivity.movies));
-            movieRatingsActivity.progressDialog.dismiss();
+            activity.setListAdapter(new RowIconAdapter(activity,
+                                                       R.layout.listrow,
+                                                       R.id.row_label,
+                                                       activity.movies));
+            activity.progressDialog.dismiss();
         }
     }
 }
