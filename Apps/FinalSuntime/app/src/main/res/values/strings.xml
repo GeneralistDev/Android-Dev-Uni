@@ -3,4 +3,6 @@
     <string name="app_name">Suntime</string>
     <string name="presets">Presets</string>
     <string name="custom">Custom</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
