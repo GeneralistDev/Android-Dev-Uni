@@ -1,7 +1,6 @@
 package au.net.danielparker.suntime.ui;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -15,7 +14,7 @@ import au.net.danielparker.suntime.R;
  * Created by danielparker on 28/10/14.
  */
 @EActivity(R.layout.activity_main)
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +41,20 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         actionBar.addTab(customTab);
     }
 
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-
-    }
+//    @Override
+//    public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+//
+//    }
+//
+//    @Override
+//    public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+//
+//    }
+//
+//    @Override
+//    public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+//
+//    }
 
     public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
 

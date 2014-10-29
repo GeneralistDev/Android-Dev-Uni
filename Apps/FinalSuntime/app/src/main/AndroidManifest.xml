@@ -3,9 +3,6 @@
       package="au.net.danielparker.suntime"
       android:versionCode="1"
       android:versionName="1.0">
-    <!--<meta-data
-        android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />-->
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="15"></uses-sdk>
@@ -13,8 +10,14 @@
         <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
         <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
         <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
       
     <application android:icon="@drawable/sunpic" android:label="@string/app_name">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDz7g2sNmmV6U6tqN04bZqOmQDa3yyfxJU"/>
         <activity android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
                   android:name=".ui.MainActivity_"
         		  android:screenOrientation="portrait"
