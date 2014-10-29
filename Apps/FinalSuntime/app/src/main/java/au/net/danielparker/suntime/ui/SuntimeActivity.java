@@ -14,8 +14,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 public class SuntimeActivity extends Activity
@@ -23,6 +26,10 @@ public class SuntimeActivity extends Activity
     /** Called when the activity is first created. */
     private Location currentLocation;
     private Calendar date = null;
+
+    private ShareActionProvider mShareActionProvider;
+
+    private Intent shareIntent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -42,7 +49,7 @@ public class SuntimeActivity extends Activity
         initializeUI();
     }
 
-	private void initializeUI()
+    private void initializeUI()
 	{
         DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
         int year;
@@ -91,7 +98,23 @@ public class SuntimeActivity extends Activity
 		Log.d("SUNRISE Unformatted", srise+"");
 		
 		sunriseTV.setText(sdf.format(srise));
-		sunsetTV.setText(sdf.format(sset));		
+		sunsetTV.setText(sdf.format(sset));
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(currentLocation.getName() + " on " +
+                             dateFormat.format(ac.getCalendar().getTime()) + "\n");
+        stringBuilder.append("\tSun rises: " + sdf.format(srise) + "\n");
+        stringBuilder.append("\tSun sets: " + sdf.format(sset));
+
+
+        shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, stringBuilder.toString());
+        shareIntent.setType("text/plain");
+
+        setShareIntent(shareIntent);
 	}
 	
 	OnDateChangedListener dateChangeHandler = new OnDateChangedListener()
@@ -101,5 +124,23 @@ public class SuntimeActivity extends Activity
 			updateTime(year, monthOfYear, dayOfMonth);
 		}	
 	};
-	
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.suntime, menu);
+
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        mShareActionProvider = (ShareActionProvider)item.getActionProvider();
+
+        setShareIntent(shareIntent);
+        return true;
+    }
+
+    private void setShareIntent(Intent shareIntent) {
+        if (mShareActionProvider != null) {
+            mShareActionProvider.setShareIntent(shareIntent);
+        }
+    }
 }
