@@ -83,10 +83,11 @@ public class MovieRatingsActivity extends ListActivity
 				viewHolder.movieText.setText(currMovie.getName());
 				String votesStr = currMovie.getVotes()+" votes";
 				viewHolder.votesText.setText(votesStr);
-				Bitmap movieIcon = getMovieIcon(currMovie.getName(), currMovie.getRating());
+				Bitmap movieIcon = getMovieIcon(currMovie.getName(),
+                                                currMovie.getRating());
 				viewHolder.icon.setImageBitmap(movieIcon);
-				Log.w("MVMVMVMVMVMV", "Creating row view at position " + pos + " movie "
-                                                                      + currMovie.getName());
+				Log.w("MVMVMVMVMVMV", "Creating row view at position " + pos +
+                                      " movie " + currMovie.getName());
 			}
 			return convertView;
 		}
