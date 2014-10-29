@@ -22,6 +22,7 @@ public class SuntimeActivity extends Activity
 {
     /** Called when the activity is first created. */
     private Location currentLocation;
+    private Calendar date = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -34,16 +35,30 @@ public class SuntimeActivity extends Activity
 
         this.currentLocation = (Location)bundle.getParcelable("location");
 
+        if (bundle.containsKey("date")) {
+            this.date = (Calendar) bundle.get("date");
+        }
+
         initializeUI();
     }
 
 	private void initializeUI()
 	{
-		DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
-		Calendar cal = Calendar.getInstance();
-		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH);
-		int day = cal.get(Calendar.DAY_OF_MONTH);
+        DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
+        int year;
+        int month;
+        int day;
+
+        if (date != null) {
+            year = date.get(Calendar.YEAR);
+            month = date.get(Calendar.MONTH);
+            day = date.get(Calendar.DAY_OF_MONTH);
+        } else {
+            Calendar cal = Calendar.getInstance();
+            year = cal.get(Calendar.YEAR);
+            month = cal.get(Calendar.MONTH);
+            day = cal.get(Calendar.DAY_OF_MONTH);
+        }
         TextView locationTV = (TextView)findViewById(R.id.locationTV);
 		dp.init(year,month,day,dateChangeHandler); // setup initial values and reg. handler
 		updateTime(year, month, day);

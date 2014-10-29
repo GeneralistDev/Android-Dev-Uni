@@ -41,7 +41,7 @@ public class LocationsFragment extends ListFragment {
     }
 
     private void showSuntimesForItem(Location selectedItem) {
-        Intent intent = new Intent(getActivity(), SuntimeActivity.class);
+        Intent intent = new Intent(getActivity(), DatePick_.class);
         intent.putExtra("location", selectedItem);
         startActivity(intent);
     }

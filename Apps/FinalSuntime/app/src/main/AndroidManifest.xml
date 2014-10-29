@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="au.net.danielparker.suntime"
-      android:versionCode="1"
-      android:versionName="1.0">
+    package="au.net.danielparker.suntime"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
     <uses-sdk
         android:minSdkVersion="17"
-        android:targetSdkVersion="17"></uses-sdk>
+        android:targetSdkVersion="17" />
 
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-        <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
-        <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-      
-    <application android:icon="@drawable/sunpic" android:label="@string/app_name">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:icon="@drawable/sunpic"
+        android:label="@string/app_name" >
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDz7g2sNmmV6U6tqN04bZqOmQDa3yyfxJU"/>
-        <activity android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-                  android:name=".ui.MainActivity_"
-        		  android:screenOrientation="portrait"
-                  android:label="@string/app_name">
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDz7g2sNmmV6U6tqN04bZqOmQDa3yyfxJU" />
+
+        <activity
+            android:name=".ui.MainActivity_"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity   android:name=".ui.SuntimeActivity"
-                    android:screenOrientation="portrait"
-                    android:label="@string/app_name">
+        <activity
+            android:name=".ui.SuntimeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-
+        <activity
+            android:name=".ui.DatePick_"
+            android:label="@string/title_activity_date_pick" >
+        </activity>
+        <activity
+            android:name=".ui.TableActivity_"
+            android:label="@string/title_activity_table" >
+        </activity>
     </application>
 
-</manifest> 
+</manifest>

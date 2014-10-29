@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/date_font"
+        android:paddingLeft="@dimen/std_padding"
+        android:paddingTop="@dimen/std_padding"
+        />
+
+    <TextView
+        android:id="@+id/sunrise_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/label_font_small"
+        android:paddingLeft="@dimen/std_padding"
+        android:layout_below="@id/date"
+        android:text="@string/rise"/>
+
+    <TextView
+        android:id="@+id/sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date"
+        android:layout_toRightOf="@id/sunrise_label"
+        android:paddingLeft="@dimen/std_padding"
+        android:textSize="@dimen/label_font_small"
+       />
+
+    <TextView
+        android:id="@+id/sunset_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/label_font_small"
+        android:paddingLeft="@dimen/std_padding"
+        android:layout_below="@id/sunrise"
+        android:text="@string/set"/>
+
+    <TextView
+        android:id="@+id/sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/label_font_small"
+        android:layout_toRightOf="@id/sunset_label"
+        android:paddingLeft="@dimen/std_padding"
+        android:layout_below="@id/sunrise_label"
+        />
+
+</RelativeLayout>

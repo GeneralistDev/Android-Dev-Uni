@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="std_padding">10dp</dimen>
     <dimen name="location_font_size">35sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="label_font">25sp</dimen>
+    <dimen name="label_font_small">18sp</dimen>
+    <dimen name="date_font">22sp</dimen>
+
 </resources>

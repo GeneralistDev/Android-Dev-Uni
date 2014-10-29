@@ -72,7 +72,7 @@ public class CustomFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Location location = new Location("Custom Location", latLng.latitude, latLng.longitude, TimeZone.getDefault() );
-                            Intent intent = new Intent(getActivity(), SuntimeActivity.class );
+                            Intent intent = new Intent(getActivity(), DatePick_.class );
                             intent.putExtra("location", location);
 
                             startActivity(intent);
