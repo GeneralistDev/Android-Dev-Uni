@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <fragment
+    <RelativeLayout
         android:id="@+id/map_fragment"
-        class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/activity_custom_location" />
+        android:layout_height="match_parent" />
 </LinearLayout>

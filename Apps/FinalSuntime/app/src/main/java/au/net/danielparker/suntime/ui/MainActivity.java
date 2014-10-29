@@ -1,9 +1,10 @@
 package au.net.danielparker.suntime.ui;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
 import org.androidannotations.annotations.EActivity;
@@ -14,13 +15,13 @@ import au.net.danielparker.suntime.R;
  * Created by danielparker on 28/10/14.
  */
 @EActivity(R.layout.activity_main)
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayShowTitleEnabled(true);
 
@@ -41,24 +42,9 @@ public class MainActivity extends ActionBarActivity {
         actionBar.addTab(customTab);
     }
 
-//    @Override
-//    public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-//
-//    }
-//
-//    @Override
-//    public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-//
-//    }
-//
-//    @Override
-//    public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-//
-//    }
-
     public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
 
-        private Fragment mFragment;
+        private Fragment mFragment = null;
         private final Activity mActivity;
         private final String mTag;
         private final Class<T> mClass;
@@ -70,25 +56,27 @@ public class MainActivity extends ActionBarActivity {
         }
 
         @Override
-        public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
             if (mFragment == null) {
                 mFragment = Fragment.instantiate(mActivity, mClass.getName());
-                fragmentTransaction.add(android.R.id.content, mFragment, mTag);
+                ft.add(android.R.id.content, mFragment, mTag);
             } else {
-                fragmentTransaction.attach(mFragment);
+                ft.attach(mFragment);
+                //fragmentTransaction.show(mFragment);
             }
         }
 
         @Override
-        public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
             if (mFragment != null) {
-                fragmentTransaction.attach(mFragment);
+                ft.detach(mFragment);
+                //fragmentTransaction.hide(mFragment);
             }
         }
 
         @Override
-        public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
-            // Do nothing
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
         }
     }
 }
