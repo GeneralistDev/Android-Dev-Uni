@@ -91,6 +91,65 @@
     % analyze a problem and/or solve it. You may also discuss the analysis or
     % problem solving approaches typically used in this area?
 
+    Software engineering like other engineering disciplines requires that
+    certain problems are solved. These problems are usually open-ended, vague,
+    or have an inherent difficulty to them. The process of solving these problems
+    usually involves some analysis of a problem, redefining of the problem to
+    improve clarity and outline constraints, and then solving that problem using
+    existing technical knowledge and research. This is an iterative process, and
+    can take some time if the problem is complex or large.
+
+    \textbf{Example:}
+    \textit{`A chat program where users on mobile devices and also on a desktop
+    browser webapp can send instant messages to each other without a long delay.'}
+
+    \textbf{Analysis:}
+    There are two key requirements in this sentence that will shift the way that
+    the system is designed. The first is that the messages have to be sent without
+    a long delay, and the second is that this must be true across mobiles and
+    web browsers. A question that arises straight away is how long is a `long
+    delay'? Also unknown is which web browsers need to be supported in this case
+    and also what mobile OS and form factors need to be supported.
+
+    \textbf{Refinement:}
+    \textit{`A chat program where users of Android tablets (7 inch +) and desktop web
+    browsers; Chrome, Safari and Internet Explorer 11 can communicate using
+    instant messages where a message takes no longer than 5 seconds on average
+    to reach the other user.`}
+
+    \textbf{Constraints:}
+    The redefined problem has enabled the extraction of concrete constraints:
+    \begin{itemize}
+      \item{
+        The messages must reach their destination within 5 seconds.
+      }
+      \item{
+        Must support Android tablets larger than 7 inches.
+      }
+      \item{
+        Must support the browsers Chrome, Safari, and Internet Explorer 11.
+      }
+    \end{itemize}
+
+    \textbf{Re-analysis:}
+    Now that some of the ambiguities have been removed and initial constraints
+    identified, the actual problem can be considered in more detail. A key issue
+    that is already visible is that of having any message received no more than
+    5 seconds after being sent. A naive solution to this is to have a persistent
+    connection open between a server and all clients, however this introduces
+    a lot of overhead to the server. In this case, due to there not being a
+    minimum number of users required, it's arguable that this would be an easy
+    solution.
+
+    If there was a requirement for a minimum number of users then another
+    solution is available which only took a small amount of online research to
+    find. Socket.io is a project which allows for socket-like communcation in
+    web browsers and other devices including Android. If socket.io didn't
+    exist, then research would have to begin into how to build that kind of
+    cross-platform and browser support.
+
+    \textbf{Iterate...}
+
   \subsection{Comparison and Contextual Placement}
     Mobile development is different to developing command line processing
     software and is even different to developing websites, though it does have
