@@ -192,6 +192,28 @@
     % claim). For instance, you can talk about how Convention over Configuration
     % can be used more generally.  Similarly, there are other concepts that you
     % can use more broadly.
+    As was stated in an earlier section Android development makes heavy point of
+    `Convention over Configuration'. This is something which is beneficial to
+    development on that platform, due to the removal of many small decisions
+    from the developer, increasing productivity and also the understandability
+    of the codebase between developers, even those who aren't on the same team.
+    Convention over Configuration would be hugely beneficial if it was more
+    readily used in other areas of software development.
+
+    Another aspect of Android development that could be used more generally in
+    UI interface development is the pattern and abstraction of an Activity and
+    Fragment. Android development requires that the Activity or Fragment classes
+    are subclassed to create specific screens or screen components. That means
+    that the subclass has the same lifecycle concepts as the superclass and
+    any specific lifecycle events that need to be customised can just be
+    overridden.
+
+    The final generalization that would be beneficial is the Annotations library.
+    Annotations allow the developer to quickly indicate some known functionality
+    using an @ tag which is then compiled to its' known implementation. This is
+    used for getting references to view objects, quickly register click handlers
+    and various other functions which are considered to be boilerplate or
+    heavily repeated code.
 
   \subsection{Challenges in Mobile Development}
     % SPEC:
