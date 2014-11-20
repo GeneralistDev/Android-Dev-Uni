@@ -9,6 +9,8 @@
 \usepackage{listings}
 \usepackage{pifont}
 \usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{subcaption}
 
 \newcommand{\cmark}{\ding{51}}
 
@@ -184,8 +186,105 @@
   quite a lot of time to learn. Both of these aspects combined with how crucial
   that library is to the chat feature in trendChattr makes it an issue to
   continue using.
+
+\section{Retrospective and Considerations}
+  So far I am very happy with the progress I have made and the speed in which
+  I've made it in. This is partly because of the initial gains from using RAPPT
+  to prototype the app, but also due to the relative ease of using the libraries
+  that RAPPT uses, Retrofit and Android Annotations, as well as the availability
+  of the jgravatar and socket.io-client libraries. I only had to modify the source
+  of jgravatar to allow me to get gravatars larger than the 512px side width
+  maximum enforced by the library.
+
+  In general, I am happy with the structure of the app, though I would like to
+  spend some time going back through each Activity and ensuring the consistent
+  use of Android Annotations versus the manual procedure for certain tasks such
+  as handling options menus. The source also lacks proper commenting and that
+  is next on my list of things to go back and fix as I intend to continue
+  developing this app with other developers.
+
+  There are some things which I will need to consider in future versions of
+  the app. I need to revisit whether socket.io is a good solution to the
+  implementation of instant messenger chat, and whether there are
+  solutions that will give better support to mobile devices, in that they
+  integrate push notifications and chat history etc. I also want to spend time
+  researching ways to effectively show chat messages from potentially hundreds
+  or thousands of people in a single chat window. If this is possible and can
+  be done nicely then it may revolutionise the way that we use chatrooms in
+  the future. I am not convinced that the old IRC way of showing chat messages
+  is the best way to do it, especially not for chatroom based conversations.
 \section{Summary}
-  % Fill out
+  In summary, the app has been designed mostly in line with the conventions
+  and requirements of Android development in general, and also has had influence
+  from the RAPPT generated prototype. Data-flow has been an interesting problem
+  to solve with this app, and the solution that was found seems to work quite
+  for the current usage levels. The experience has in general been very positive
+  and has inspired me to continue developing this app and also an iOS and web
+  application.
 \section{References}
-  % Fill out
+  \begin{enumerate}
+    \item{
+      ralfebert 2012, \textit{jgravatar}(v1.0.0)[Programming Library],
+      viewed on 19 November 2014,
+      \url{https://github.com/ralfebert/jgravatar}.
+    }
+    \item{
+      Banes, C 2014, \textit{appcompat v21: material design for pre-Lollipop
+      devices!}, Chris Banes, viewed 18 November 2014,
+      \url{https://chris.banes.me/2014/10/17/appcompat-v21/}
+    }
+    \item{
+      \textit{Creating a Navigation Drawer}, Developers, viewed 19 November 2014
+      \url{https://developer.android.com/training/implementing-navigation/nav-drawer.html}
+    }
+    \item{
+      Ricau, P 2013, \textit{Android Adapter Good Practices}, viewed 19 November
+      2014, \url{http://www.piwai.info/android-adapter-good-practices/}
+    }
+  \end{enumerate}
+
+\section{Appendix 1 (Planning and Design Document)}
+  \includepdf[pages={1-6}]{design.pdf}
+\section{Appendix 2 (App Screenshots)}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{images/ss1.png}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{images/ss2.png}
+    \end{subfigure}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{images/ss3.png}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{images/ss4.png}
+    \end{subfigure}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{images/ss5.png}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.7\linewidth]{images/ss6.png}
+    \end{subfigure}
+  \end{figure}
+  % \begin{figure}[H]
+  %   %\centering{
+  %     \fbox{\includegraphics[width=6cm]{images/ss2.png}}
+  %   %}\\
+  % \end{figure}
+
 \end{document}
