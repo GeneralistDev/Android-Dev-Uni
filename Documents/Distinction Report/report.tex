@@ -8,6 +8,7 @@
 \usepackage{pdflscape}
 \usepackage{listings}
 \usepackage{pifont}
+\usepackage{pdfpages}
 
 \newcommand{\cmark}{\ding{51}}
 
@@ -63,7 +64,6 @@
     \begin{itemize}
       \item{activites}
       \item{adapters}
-      \item{dummy}
       \item{fragments}
       \item{interfaces}
       \item{model}
@@ -76,11 +76,22 @@
   Most libraries are included by gradle at compile time, however one library
   needed modifications, and has been packaged as a jar archive and added
   to the libs directory and as a gradle dependency.
-
 \section{Program Structure}
+\newpage
   \subsection{Class Diagram}
+    \begin{figure}[H]
+      \centering{
+        \fbox{\includegraphics[width=\textwidth]{classes.pdf}}
+      }
+    \end{figure}
+    %\includepdf[pages={1}]{classes.pdf}
   \subsection{Data Model}
-
+  \begin{figure}[H]
+    \centering{
+      \fbox{\includegraphics[width=\textwidth]{dataflow.pdf}}
+    }
+  \end{figure}
+    %\includepdf[pages={1}]{dataflow.pdf}
 \section{Visual Structure (Navigation)}
   \subsection{Navigation Flow Diagram}
     \begin{figure}[H]
