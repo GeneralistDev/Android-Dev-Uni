@@ -77,7 +77,56 @@
   needed modifications, and has been packaged as a jar archive and added
   to the libs directory and as a gradle dependency.
 \section{Program Structure}
-\newpage
+  Much of the app is structured in the `predefined' manner which is mostly
+  dictated by the Android libraries and framework. These structural aspects can
+  mostly be observed in the class diagram, and are highlighted by the
+  inheritance of one of the green coloured Android classes by one of the app's
+  classes. Other important structural parts which aren't shown in the class
+  diagram due to their complexity are;
+  \begin{itemize}
+      \item{
+        Activities/Fragments which contain listviews in their layout will
+        utilise one of the Adapter classes to map a Parcelable model to
+        the correct View objects in the Activity.
+      }
+      \item{
+        Activities instantiate Fragments and then use the FragmentManager
+        and FragmentTransactions to manage what fragments are in view,
+        how they are animated onto and off the screen, and whether they are
+        placed onto the backstack.
+      }
+      \item{
+        The TrendchattrApplication class contains a socket.io service which
+        will notify all registered classes that implement the RoomListener
+        interface that a new message has arrived. It also manages the shared
+        preferences, sending of chat messages and contains the TrendchattrApi
+        object which executes all the RESTful API calls.
+      }
+  \end{itemize}
+
+  Data management and flow is particularly interesting for trendChattr in that
+  it requires both RESTful API calls and instantaneous asynchronous chat
+  communications. This is achieved by using a Node.js server which manages
+  user and trend data in a Mongo database, and has a small part which manages
+  the connecting and broadcasting of clients to socket.io rooms. The app connects
+  to this server using the Retrofit library for REST requests (ie. Registration,
+  Login, Chatroom list), and using the socket.io-client java library to respond
+  to and emit socket.io events and enabling instant messenger chat communication.
+
+  Additionally, upon logging in the server will require that all requests are
+  accompanied by a security token which is generated and sent back as a response
+  to the login request. Retrofit manages the inclusion of this token to all
+  the relevant API calls by adding it to the HTTP header, and the server will
+  ensure that the user is authenticated to perform the tasks that they try to.
+  Tokens only become invalid if the user logs back in again, as the token will
+  be regenerated and the old one lost.
+
+  \textit{\textbf{NOTE: }The trending topics are sourced from Twitter and are
+  hard-coded to be relevant to the Melbourne region. Due to the Twitter API
+  limiting the frequency of requests to this endpoint, the Node.js server will
+  update the trends itself using a cron job and always supply to the app trends
+  relevant to the last 5 minutes.}
+  \newpage
   \subsection{Class Diagram}
     \begin{figure}[H]
       \centering{
@@ -99,9 +148,42 @@
         \fbox{\includegraphics[width=\textwidth]{images/nav-flow.png}}
       }\\
     \end{figure}
-
 \section{API Limitations}
+  trendChattr utilises a few different library APIs, most supplied by the
+  Android stack, and some third-party. The Android libraries while mostly stable
+  and fully featured, do have the issue of compatibility. Unfortunately due to
+  the requirement to have support back to API version 15, it was not possible to
+  use the normal android libraries. Instead, the Android support libraries and
+  appcompat libraries were used to allow for Material-like design and common
+  navigation and visual functionality on devices running API 15+.
 
+  This caused a variety of development setbacks as some of the Activities were
+  written before realising this, and therefor required rewriting and sometimes
+  complete restructuring to convert them to using the appcompat libraries. Some
+  key areas which seem to be affected by this are, styling, action bars,
+  navigation drawers, fragments and lists.
+
+  The third-party libraries used include;
+  \begin{itemize}
+    \item{Retrofit}
+    \item{Android Annotations}
+    \item{socket.io-client}
+    \item{cardview}
+    \item{circularimageview}
+    \item{jgravatar}
+  \end{itemize}
+  Most of these libraries are very stable and maintained which makes them very
+  easy to work with. However socket.io-client and jgravatar do not seem to be
+  heavily supported even though they do work out of the box. I would argue that
+  in the case of jgravatar, the fact that it's not supported is of minor
+  importance, as the library is trivial and due to it's open source license can
+  be modified and maintained easily by me. In the case of socket.io-client it's
+  not as simple as self-maintaining it and that is mostly due to the relative
+  volatility of the socket.io server versions of which it needs to remain
+  compatible with. The library is also a non-trivial program which could take
+  quite a lot of time to learn. Both of these aspects combined with how crucial
+  that library is to the chat feature in trendChattr makes it an issue to
+  continue using.
 \section{Summary}
   % Fill out
 \section{References}
