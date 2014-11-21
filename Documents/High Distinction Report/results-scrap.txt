@@ -1,0 +1,34 @@
+LINES OF CODE: Primitive
+Proto:
+Java: 524
+XML: 362
+Full:
+Java: 2268
+XML: 922
+
+LINES OF CODE: CLOC
+Proto:
+Java: 384
+XML: 335
+Total: 719
+Full:
+Java: 1668
+XML: 867
+Total: 2535
+
+Ratio(Proto/Alpha) = 0.28 or 28% of total code
+
+Time to proto:
+1 Days / 7.6 hours
+
+Time to extend:
+7 Days / 53.2 hours
+
+Ratio of time (Proto/Alpha) = 0.143 or 14.3 % of total time
+
+28% of the time to write manually == 14.9 hours but the prototype did it in 7.6
+
+(WORK OUTPUT / WORK INPUT) x 100 %
+(14.9/7.6) == 196% efficiency for that part of the project
+
+(68.1/ 60.8) == 112% efficiency for the whole project
